@@ -19,8 +19,8 @@ class CreateFournisseursTable extends Migration
             $table->string('nomfour');
             $table->string('telfour');
             $table->string('emailfour');
-            $table->string('adrfour');
-            $table->string('imagefour');
+            $table->string('adrfour')->default('null');
+            $table->string('imagefour')->default('null');
             $table->timestamps();
         });
     }

@@ -18,3 +18,10 @@ Route::get('/', function () {
 });
 
 Route::get('/fournisseurs',[FournisseurControler::class,'index'])->name('fournisseurs.index');
+
+Route::get('/fournisseurs/create',[FournisseurControler::class,'create'])->name('fournisseurs.create');
+Route::post('/fournisseurs',[FournisseurControler::class,'store'])->name('fournisseurs.store');
+Route::get('/fournisseurs/{fournisseur}/edit',[FournisseurControler::class,'edit'])->name('fournisseurs.edit');
+Route::put('/fournisseurs/{fournisseur}',[FournisseurControler::class,'update'])->name('fournisseurs.update');
+Route::delete('/fournisseurs/{fournisseur}',[FournisseurControler::class,'destroy'])->name('fournisseurs.destroy');
+
