@@ -17,6 +17,8 @@ class CreateProduitsTable extends Migration
             $table->increments('idproduit');
             $table->string('codeproduit');
             $table->string('nomproduit');
+
+            $table->timestamps();
         });
     }
 

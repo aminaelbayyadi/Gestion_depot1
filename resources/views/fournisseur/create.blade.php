@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SIMPLE LARAVEL 9 CRUD IN HINDI</title>
+    <title>SIMPLE LARAVEL 9 CRUD </title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 </head>
 <body>
 
     <div class="bg-dark py-3">
         <div class="container">
-            <div class="h4 text-white">SIMPLE LARAVEL 9 CRUD IN HINDI</div>
+            <div class="h4 text-white">SIMPLE LARAVEL 9 CRUD </div>
         </div>
     </div>
 
@@ -80,7 +80,5 @@
 
         </form>
     </div>
-
-    
 </body>
 </html>
