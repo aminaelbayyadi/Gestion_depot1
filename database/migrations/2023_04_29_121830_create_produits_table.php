@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateReceptionsTable extends Migration
+class CreateProduitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateReceptionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('receptions', function (Blueprint $table) {
-            $table->increments('idreception');
-            $table->foreignId('fournisseur_id')->constrained();
-            $table->date('datereception');
-            $table->string('numreception');
-            $table->integer('nbrarticle');  
+        Schema::create('produits', function (Blueprint $table) {
+            $table->id('idproduit');
+            $table->string('codeproduit');
+            $table->string('nomproduit');
             $table->timestamps();
+
         });
     }
 
@@ -30,6 +29,6 @@ class CreateReceptionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('receptions');
+        Schema::dropIfExists('produits');
     }
 }

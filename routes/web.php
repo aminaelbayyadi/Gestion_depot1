@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FournisseurControler;
 use App\Http\Controllers\ProduitControler;
+use App\Http\Controllers\EtablissementControler;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,14 @@ Route::post('/produits',[ProduitControler::class,'store'])->name('produits.store
 Route::get('/produits/{produit}/edit',[ProduitControler::class,'edit'])->name('produits.edit');
 Route::put('/produits/{produit}',[ProduitControler::class,'update'])->name('produits.update');
 Route::delete('/produits/{produit}',[ProduitControler::class,'destroy'])->name('produits.destroy');
+
+
+
+Route::get('/etablissements',[EtablissementControler::class,'index'])->name('etablissements.index');
+
+Route::get('/etablissements/create',[EtablissementControler::class,'create'])->name('etablissements.create');
+Route::post('/etablissements',[EtablissementControler::class,'store'])->name('etablissements.store');
+Route::get('/etablissements/{etablissement}/edit',[EtablissementControler::class,'edit'])->name('etablissements.edit');
+Route::put('/etablissements/{etablissement}',[EtablissementControler::class,'update'])->name('etablissements.update');
+Route::delete('/etablissements/{etablissement}',[EtablissementControler::class,'destroy'])->name('etablissements.destroy');
+

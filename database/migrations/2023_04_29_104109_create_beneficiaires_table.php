@@ -17,8 +17,8 @@ class CreateBeneficiairesTable extends Migration
             $table->increments('idbeneficiaire');
             $table->string('code_beneficiaire');
             $table->string('nombeneficiaire');
-            $table->unsignedBigInteger('etablissement_id');
-            $table->foreign('etablissement_id')->references('idetablissement')->on('etablissements')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedBigInteger('idetablissement');
+            $table->foreign('idetablissement')->references('idetablissement')->on('etablissements')->onUpdate('cascade')->onDelete('cascade');
             $table->string('situation');
 
             $table->timestamps();

@@ -15,6 +15,7 @@ class CreateEtablissementsTable extends Migration
     {
         Schema::create('etablissements', function (Blueprint $table) {
             $table->increments('idetablissement');
+            $table->string('codetablissement')->unique();
             $table->string('nometablissement');
             $table->string('tel_fixe_etablissement');
             $table->text('adretablissement');

@@ -10,7 +10,7 @@
 <body>
     <div class="bg-dark py-3">
         <div class="container">
-            <div class="h4 text-white">SIMPLE LARAVEL 9 CRUD </div>
+            <div class="h4 text-white">SIMPLE LARAVEL  </div>
         </div>
     </div>
     <div class="container ">
