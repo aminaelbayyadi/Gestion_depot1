@@ -55,6 +55,7 @@ Route::delete('/etablissements/{etablissement}',[EtablissementControler::class,'
 Auth::routes();
 
 Route::get('/receptions/{reception}',[ReceptionControler::class,'index'])->name('receptions.index');
+//Route::get('/receptions/{reception}',[ReceptionControler::class,'index'])->name('receptions.index');
 
 
 

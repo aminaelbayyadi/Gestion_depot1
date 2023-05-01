@@ -10,7 +10,10 @@ class FormControler extends Controller
     public function index()
     {
         $fournisseur = DB::table('fournisseurs')->get();
-        return view('formselect',compact('fournisseur'));
+        $produits = DB::table('produits')->get();
+        $stock = DB::table('stock')->get();
+        return view('formselect',compact('fournisseur','produits','stock'));
+       
     }
     
 }

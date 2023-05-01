@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 </head>
 <body>
+
+
+
+
     <div class="bg-dark py-3">
         <div class="container">
             <div class="h4 text-white">SIMPLE LARAVEL </div>
