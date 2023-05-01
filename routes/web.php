@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FournisseurControler;
 use App\Http\Controllers\ProduitControler;
 use App\Http\Controllers\EtablissementControler;
+use App\Http\Controllers\ReceptionControler;
+use App\Http\Controllers\FormControler;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +51,19 @@ Route::get('/etablissements/{etablissement}/edit',[EtablissementControler::class
 Route::put('/etablissements/{etablissement}',[EtablissementControler::class,'update'])->name('etablissements.update');
 Route::delete('/etablissements/{etablissement}',[EtablissementControler::class,'destroy'])->name('etablissements.destroy');
 
+
+Auth::routes();
+
+Route::get('/receptions/{reception}',[ReceptionControler::class,'index'])->name('receptions.index');
+
+
+
+Route::get('/', function () {
+    return redirect('form/select');
+});
+Route::get('form/select', [App\Http\Controllers\FormControler::class, 'index'])->name('form/select');
+
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('em/dashboard', [App\Http\Controllers\HomeController::class, 'emDashboard'])->name('em/dashboard');
