@@ -93,7 +93,7 @@
 <body>
 
     <div class="signup-form">
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="{{ route('form.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <h2>Form Select Basic</h2>
             <hr>
@@ -109,14 +109,58 @@
                 </div>
             </div>
              
-            <div class="form-group" id="fournisseur">
+            <div class="form-group" id="reception">
                 <div class="input-group">
                     <label for="name" class="col-sm-2 col-form-label">Date de reception *</label>
-                    <input id="name" type="date" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                    <input id="reception" type="date" class="form-control @error('reception') is-invalid @enderror" name="reception" value="{{ old('reception') }}" >
                     
                 </div>
             </div>
             
+        
+    <div class="form-group">
+        <h4>Liste des produits</h4>
+        <p> choisir les produits recus </p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+            @if($produits->isNotEmpty())
+            
+                    @foreach ($produits as $produit)
+                    <tr>
+                     
+                        <td>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="produitsSelected" value="{{ $produit->idproduit }}">
+                            </div>
+                        </td>
+                        <td>{{ $produit->nomproduit }}</td>
+                        <td>  </td>
+                        <td>
+                            <div class="form-group">
+                                <input type="number" class="form-control" name="quantities[{{ $produit->idproduit }} - 5]" min="0" value="0">
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                    @else
+                    <tr>
+                        <td colspan="6">Record Not Found</td>
+                    </tr>
+                    @endif
+                
+            </tbody>
+        </table>
+    </div>
+
+
+
             <div class="form-group">
                 <div class="form-group">
                     <label for="name" class="col-sm-2 col-form-label"></label>
@@ -125,6 +169,17 @@
             </div>
         </form>
     </div>
+
+
+
+   
+    
+
+
+
+
+
+
     <script>
         $(function()
         {
