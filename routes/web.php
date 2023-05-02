@@ -6,6 +6,7 @@ use App\Http\Controllers\ProduitControler;
 use App\Http\Controllers\EtablissementControler;
 use App\Http\Controllers\ReceptionControler;
 use App\Http\Controllers\FormControler;
+use App\Http\Controllers\StockController;
 
 
 
@@ -69,3 +70,11 @@ Route::post('/form/select',[App\Http\Controllers\FormControler::class,'store'])-
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('em/dashboard', [App\Http\Controllers\HomeController::class, 'emDashboard'])->name('em/dashboard');
+
+
+Route::get('/stock',[StockController::class,'index'])->name('stock.index');
+Route::get('/stock/create',[StockController::class,'create'])->name('stock.create');
+Route::post('/stock',[StockController::class,'store'])->name('stock.store');
+Route::get('/stock/{stock}/edit',[StockController::class,'edit'])->name('stock.edit');
+Route::put('/stock/{stock}',[StockController::class,'update'])->name('stock.update');
+Route::delete('/stock/{stock}',[StockController::class,'destroy'])->name('stock.destroy');

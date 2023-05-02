@@ -2,22 +2,74 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="row">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
+                <div class="card-header">Nombre de produits</div>
+                <div class="card-body" id="products-chart"></div>
+                
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Pourcentages des fournisseurs</div>
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+                    <div id="fournisseurs-chart"></div>
+                    
                 </div>
             </div>
         </div>
     </div>
 </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
+
+@push('scripts')
+<script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+<script >
+   var totalProducts = {{$totalProducts}};
+   
+    
+    // Products chart
+    Highcharts.chart('products-chart', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Nombre de produits'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.y}</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.y}',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: 'Nombre de produits',
+            colorByPoint: true,
+            data: [{
+                name: 'Nombre de produits',
+                y: totalProducts,
+                sliced: true,
+                selected: true
+            }]
+        }]
+    });
+</script>
+@endpush

@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Fournisseur;
+use App\Models\Produit;
+use App\Models\Stock;
 
 use Illuminate\Http\Request;
 
@@ -23,6 +26,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $totalProducts = Produit::count();
+        $totalFournisseurs = Stock::count();
+        
+        
+        
+        return view('home', compact('totalProducts', 'totalFournisseurs'));
     }
 }
+
+        
+    
+
