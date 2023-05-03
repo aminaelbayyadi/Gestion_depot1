@@ -37,7 +37,7 @@ class FormControler extends Controller
 
     } else {
          // Retrieve the selected products and their quantities
-         $selectedProducts = $request->input('produitsSelected');
+        // $selectedProducts = $request->input('produitsSelected');
          $quantities = $request->input('quantities');
      
          // Calculate the sum of quantities
@@ -50,14 +50,31 @@ class FormControler extends Controller
        $reception->nbrarticle =$nbrArticles;
        $reception->save();
 
-       $detailreception=new Detaitreception();
+ 
        $lastid = Reception::latest()->first()->id;
-       foreach ($selectedProducts as $produitId) {
-            $detailreception -> reception_id -> $lastid +1;
-            $detailreception -> produit_id -> $produitId;
 
-             $detilreception->produits()->attach($produitId, ['quantite_recue' => $quantities[$produitId]]);
-      }
+       
+        
+
+
+       $selectedProducts = array();
+       if (isset($_POST['produitsSelected']) && in_array($produits->idproduit, $_POST['produitsSelected'])) {
+        // Add the current product to the selected products array
+        $selectedProducts[] = $produits;
+        }
+       
+       $arrqte = array();
+       $arrqte = $_POST['quantities'];
+        
+    $arr = array_combine($selectedProducts,$arrqte);
+       foreach ($arr as $prod => $qte) {
+        $detailreception=new Detaitreception();
+            $detailreception -> reception_id = $lastid +1;
+            $detailreception -> produit_id = $prod;
+            $detailreception -> quantite_recue = $qte;
+      
+      $detailreception ->save();
+       }
 
 
     }
