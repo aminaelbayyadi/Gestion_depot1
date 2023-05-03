@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class detaitreception extends Model
+class Detaitreception extends Model
 {
     use HasFactory;
     protected $primaryKey='iddetails';
-    protected $fillable =['produit_id','reception_id'];
+    protected $fillable =['produit_id','reception_id','quantite_recue'];
 
 }

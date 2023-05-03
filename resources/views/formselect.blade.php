@@ -93,7 +93,7 @@
 <body>
 
     <div class="signup-form">
-        <form action="{{ route('form.store') }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('form.save') }}" method="post" enctype="multipart/form-data">
             @csrf
             <h2>Form Select Basic</h2>
             <hr>

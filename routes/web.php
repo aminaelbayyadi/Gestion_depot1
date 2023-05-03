@@ -64,7 +64,7 @@ Route::get('/', function () {
     return redirect('form/select');
 });
 Route::get('/form/select', [App\Http\Controllers\FormControler::class, 'index'])->name('form/select');
-Route::post('/form/select',[App\Http\Controllers\FormControler::class,'store'])->name('form.store');
+Route::post('/form/select',[App\Http\Controllers\FormControler::class,'save'])->name('form.save');
 
 
 
