@@ -20,22 +20,7 @@ class FormControler extends Controller
 
         public function save(Request $request)
         {
-            $validator = Validator::make($request->all(),[
-                'fournisseur' => 'required',
-            'reception' => 'required',
-            'produitsSelected' => 'required|array',
-            'quantities' => 'required|array'
-            ]);
-    
-            if($validator->passes()){
-                $reception=new Reception();
-                $reception->fournisseur_id = $request->fournisseur;
-                $reception->datereception = $request->reception;
-                $reception->nbrarticle =3;
-                $reception->save();
-
-
-    } else {
+            
          // Retrieve the selected products and their quantities
         // $selectedProducts = $request->input('produitsSelected');
          $quantities = $request->input('quantities');
@@ -51,32 +36,28 @@ class FormControler extends Controller
        $reception->save();
 
  
-       $lastid = Reception::latest()->first()->id;
-
-       
-        
-
-
-       $selectedProducts = array();
-       if (isset($_POST['produitsSelected']) && in_array($produits->idproduit, $_POST['produitsSelected'])) {
-        // Add the current product to the selected products array
-        $selectedProducts[] = $produits;
-        }
-       
-       $arrqte = array();
-       $arrqte = $_POST['quantities'];
-        
-    $arr = array_combine($selectedProducts,$arrqte);
-       foreach ($arr as $prod => $qte) {
-        $detailreception=new Detaitreception();
-            $detailreception -> reception_id = $lastid +1;
-            $detailreception -> produit_id = $prod;
-            $detailreception -> quantite_recue = $qte;
+       $lastid = Reception::latest()->first()-> idreception;
       
-      $detailreception ->save();
+       $produitsSelected = $request->input('produitsSelected');
+       $quantities = $request->input('quantities');
+       
+       // Loop through the selected products and their quantities
+       for ($i = 0; $i < count($produitsSelected); $i++) {
+           $produitId = $produitsSelected[$i];
+           $quantity = $quantities[$i];
+   
+           // Insert the product and its quantity into the detailreception table
+           DB::table('detailsreception')->insert([
+            'produit_id' => $produitId,
+            'reception_id' => $lastid,
+               
+               'quantite_recue' => $quantity
+           ]);
        }
+   
 
 
+       return redirect()->route('reception.index')->with('success', 'Reception created successfully.');
     }
 
 
@@ -88,11 +69,11 @@ class FormControler extends Controller
           //  }
             
             // Redirect to the receptions index page with a success message
-            return redirect()->route('stock.index')->with('success', 'Reception created successfully.');
+            
         }
         
 
 
-    }
+      
     
 
