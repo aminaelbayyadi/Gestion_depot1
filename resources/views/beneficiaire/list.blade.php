@@ -50,7 +50,7 @@
                         <td >{{ $beneficiaire->code_beneficiaire }}</td>
                         <td>{{ $beneficiaire->nombeneficiaire }}</td>
                         <td>{{ $beneficiaire->fonction }}</td>
-                        <td>{{ $beneficiaire->etablissement_id }}</td>
+                        <td>{{ $beneficiaire->nometablissement }}</td>
                         <td>{{ $beneficiaire->situation }}</td>
 
                         <td>

@@ -11,7 +11,8 @@ class BeneficiaireControler extends Controller
 {
     public function index(){
         $etablissements = DB::table('etablissements')->get();
-        $beneficiaires = beneficiaire::orderBy('idbeneficiaire','DESC')->paginate(50);
+        $beneficiaires = beneficiaire::join('etablissements', 'beneficiaires.etablissement_id', '=', 'etablissements.idetablissement')->orderBy('idbeneficiaire','DESC')
+        ->paginate(50);
        return view('beneficiaire.list',['beneficiaires' => $beneficiaires]);
                 //return view('beneficiaire.list',compact('etablissement','produits'));
 
