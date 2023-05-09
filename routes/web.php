@@ -7,7 +7,8 @@ use App\Http\Controllers\EtablissementControler;
 use App\Http\Controllers\ReceptionControler;
 use App\Http\Controllers\FormControler;
 use App\Http\Controllers\StockController;
-
+use App\Http\Controllers\BeneficiaireControler;
+use App\Http\Controllers\Index2Controler;
 
 
 /*
@@ -24,6 +25,7 @@ use App\Http\Controllers\StockController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/homes',[Index2Controler::class,'index'])->name('homes.index');
 
 Route::get('/fournisseurs',[FournisseurControler::class,'index'])->name('fournisseurs.index');
 
@@ -78,3 +80,12 @@ Route::post('/stock',[StockController::class,'store'])->name('stock.store');
 Route::get('/stock/{stock}/edit',[StockController::class,'edit'])->name('stock.edit');
 Route::put('/stock/{stock}',[StockController::class,'update'])->name('stock.update');
 Route::delete('/stock/{stock}',[StockController::class,'destroy'])->name('stock.destroy');
+
+
+Route::get('/beneficiaires',[BeneficiaireControler::class,'index'])->name('beneficiaires.index');
+Route::get('/beneficiaires/create',[BeneficiaireControler::class,'create'])->name('beneficiaires.create');
+Route::post('/beneficiaires',[BeneficiaireControler::class,'store'])->name('beneficiaires.store');
+Route::get('/beneficiaires/{beneficiaire}/edit',[BeneficiaireControler::class,'edit'])->name('beneficiaires.edit');
+Route::put('/beneficiaires/{beneficiaire}',[BeneficiaireControler::class,'update'])->name('beneficiaires.update');
+Route::delete('/beneficiaires/{beneficiaire}',[BeneficiaireControler::class,'destroy'])->name('beneficiaires.destroy');
+
