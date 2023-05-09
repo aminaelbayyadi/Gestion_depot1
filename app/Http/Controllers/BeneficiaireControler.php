@@ -54,7 +54,7 @@ class BeneficiaireControler extends Controller
 
     public function edit($idbeneficiaire
 ){
-        $beneficiaire= beneficiaire::findOrFail($idbeneficiaire);
+        $beneficiaire= beneficiaire::findOrFail($idbeneficiaire); 
         return view('beneficiaire.edit',['beneficiaire'=>$beneficiaire]);
     }
 
@@ -64,7 +64,7 @@ class BeneficiaireControler extends Controller
             'code_beneficiaire' =>'required',
             'nombeneficiaire' =>'required',
             'fonction' =>'required',
-            'etablissement_id' =>'required',
+            'etablissement' =>'required',
             'situation' =>'required',
 
         ]);

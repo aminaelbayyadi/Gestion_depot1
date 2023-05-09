@@ -10,7 +10,7 @@ use App\Models\Etablissement;
 class Beneficiaire extends Model
 {
     use HasFactory;
-    protected $primaryKey='idbeneficiaire ';
+    protected $primaryKey='idbeneficiaire';
     protected $fillable =['code_beneficiaire','nombeneficiaire','fonction','etablissement_id','situation'];
 
     public function Etablissements()
