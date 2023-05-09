@@ -55,7 +55,8 @@ class BeneficiaireControler extends Controller
     public function edit($idbeneficiaire
 ){
         $beneficiaire= beneficiaire::findOrFail($idbeneficiaire); 
-        return view('beneficiaire.edit',['beneficiaire'=>$beneficiaire]);
+        $etablissements = DB::table('etablissements')->get();
+        return view('beneficiaire.edit',['beneficiaire'=>$beneficiaire],compact('etablissements'));
     }
 
     public function update($idbeneficiaire,Request $request){
@@ -64,18 +65,20 @@ class BeneficiaireControler extends Controller
             'code_beneficiaire' =>'required',
             'nombeneficiaire' =>'required',
             'fonction' =>'required',
-            'etablissement' =>'required',
+            'etablissement_id' =>'required',
             'situation' =>'required',
 
         ]);
 
         if($validator->passes()){
-            $beneficiaire=new beneficiaire();
+            $beneficiaire = Beneficiaire::find($idbeneficiaire);
             $beneficiaire->fill($request->post())->save();
 
             return redirect()->route('beneficiaires.index')->with('success','beneficiaire updated successfully.');
         } else {
             // return with errrors
+            $beneficiaire = Beneficiaire::find($idbeneficiaire);
+            $beneficiaire->fill($request->post())->save();
             return redirect()->route('beneficiaires.edit',$idbeneficiaire)->withErrors($validator)->withInput();
         }
     

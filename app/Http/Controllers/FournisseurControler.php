@@ -106,6 +106,11 @@ class FournisseurControler extends Controller
 }
 public function destroy($id, Request $request){
    $fournisseur= Fournisseur::findOrFail($id);
+   $receptions = $fournisseur->receptions;
+foreach ($receptions as $reception) {
+    $reception->fournisseur_id = null;
+    $reception->save();
+}
    file::delete(public_path().'/uploads/fournisseurs/'.$fournisseur->imagefour);
    $fournisseur->delete();
    return redirect()->route('fournisseurs.index')->with('success','Fournisseur deleted successfully.');;
