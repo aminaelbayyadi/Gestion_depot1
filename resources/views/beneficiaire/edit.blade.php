@@ -24,13 +24,13 @@
         </div>
 
         <form action="{{ route('beneficiaires.update',$beneficiaire->idbeneficiaire) }}" method="post" enctype="multipart/form-data">
-            @csrf
+        @csrf
             @method('put')
-           <div class="card border-0 shadow-lg">
+            <div class="card border-0 shadow-lg">
                 <div class="card-body">
                     <div class="mb-3">
                         <label for="code_beneficiaire" class="form-label">code</label>
-                        <input type="text" name="code_beneficiaire" id="code_beneficiaire" placeholder="Enter code" class="form-control @error('codbeneficiaire') is-invalid @enderror" value="{{ old('codbeneficiaire') }}">
+                        <input type="text" name="code_beneficiaire" id="code_beneficiaire" placeholder="Enter code" class="form-control @error('code_beneficiaire') is-invalid @enderror" value="{{ old('code_beneficiaire',$beneficiaire->code_beneficiaire) }}">
                         @error('code_beneficiaire')
                             <p class="invalid-feedback">{{ $message }}</p>    
                         @enderror                        
@@ -38,7 +38,7 @@
 
                     <div class="mb-3">
                         <label for="nombeneficiaire" class="form-label">nom de beneficiaire</label>
-                        <input type="text" name="nombeneficiaire" id="nombeneficiaire" placeholder="Enter nom de beneficiaire" class="form-control @error('nombeneficiaire') is-invalid @enderror" value="{{ old('nombeneficiaire') }}">
+                        <input type="text" name="nombeneficiaire" id="nombeneficiaire" placeholder="Enter nom de beneficiaire" class="form-control @error('nombeneficiaire') is-invalid @enderror" value="{{ old('nombeneficiaire',$beneficiaire->nombeneficiaire) }}">
                         @error('nombeneficiaire')
                             <p class="invalid-feedback">{{ $message }}</p>    
                         @enderror                        
@@ -46,7 +46,7 @@
 
                     <div class="mb-3">
                         <label for="fonction" class="form-label">fonction</label>
-                        <input type="text" name="fonction" id="fonction" placeholder="Fonction" class="form-control @error('fonction') is-invalid @enderror" value="{{ old('fonction') }}">
+                        <input type="text" name="fonction" id="fonction" placeholder="Fonction" class="form-control @error('fonction') is-invalid @enderror" value="{{ old('fonction',$beneficiaire->fonction) }}">
                         @error('fonction')
                             <p class="invalid-feedback">{{ $message }}</p>    
                         @enderror                        
@@ -54,17 +54,16 @@
                     <div class="mb-3">
                         <label for="etablissement" class="form-label">nom etablissement</label>
 
-                        <select class="form-control" name="etablissement_id" id="etablissement_id" class="form-control @error('etablissement_id') is-invalid @enderror" value="{{ old('etablissement_id') }}">
+                        <select class="form-control" name="etablissement_id" id="etablissement_id" class="form-control @error('etablissement_id') is-invalid @enderror" value="{{ old('etablissement_id',$beneficiaire->etablissement_id) }}">
                         <option selected disabled>--- Select etablissement ---</option>
                         @foreach ($etablissements as $etablissement )
                         <option value="{{ $etablissement->idetablissement }}">{{ $etablissement->nometablissement }}</option>
                         @endforeach
                     </select>
-                                              
                     </div>
                     <div class="mb-3">
-                        <label for="situation" class="form-label">situation</label>
-                        <input type="text" name="situation" id="situation" placeholder="situation" class="form-control @error('situation') is-invalid @enderror" value="{{ old('situation') }}">
+                        <label for="situation" class="form-label"> situation </label>
+                        <input type="text" name="situation" id="situation" placeholder="Enter situation" class="form-control @error('situation') is-invalid @enderror" value="{{ old('situation',$beneficiaire->situation) }}">
                         @error('situation')
                             <p class="invalid-feedback">{{ $message }}</p>    
                         @enderror                        

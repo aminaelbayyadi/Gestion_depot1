@@ -44,7 +44,7 @@ class ProduitControler extends Controller
             'nomproduit' =>'required'
         ]);
         if($validator->passes()){
-            $produit =new produit();
+            $produit= Produit::find($idproduit);
             $produit ->fill($request->post())->save();
     
             return redirect()->route('produits.index')->with('success','produit updated successfully.');

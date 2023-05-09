@@ -37,7 +37,7 @@
                         <th >code_beneficiaire</th>
                         <th>nombeneficiaire</th>
                         <th>fonction</th>
-                        <th >etablissement_id</th>
+                        <th >nom_etablissement</th>
                         <th >situation</th>
 
                         <th width="150">Action</th>

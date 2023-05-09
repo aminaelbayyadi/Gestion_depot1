@@ -57,7 +57,8 @@ class EtablissementControler extends Controller
         ]);
 
         if($validator->passes()){
-            $etablissement =new etablissement();
+
+            $etablissement= Etablissement::find($ididetablissement);
             $etablissement ->fill($request->post())->save();
 
             return redirect()->route('etablissements.index')->with('success','etablissement updated successfully.');

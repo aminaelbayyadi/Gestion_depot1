@@ -72,7 +72,7 @@ class FournisseurControler extends Controller
 
         if($validator->passes()){
             //save data
-          //  $fournisseur= Fournisseur::find($id);
+           $fournisseur= Fournisseur::find($id);
            // $fournisseur->codefour = $request->codefour;
           //  $fournisseur->nomfour = $request->nomfour;
            //$fournisseur->telfour = $request->telfour;
@@ -80,7 +80,6 @@ class FournisseurControler extends Controller
             //$fournisseur->adrfour = $request->adrfour;
             //$fournisseur->save();
 
-            $fournisseur =new Fournisseur();
             $fournisseur ->fill($request->post())->save();
 
 
