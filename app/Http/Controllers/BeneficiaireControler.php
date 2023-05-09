@@ -26,7 +26,7 @@ class BeneficiaireControler extends Controller
             'code_beneficiaire' =>'required',
             'nombeneficiaire' =>'required',
             'fonction' =>'required',
-            'etablissement_id' =>'required',
+            'etablissement' =>'required',
             'situation' =>'required',
         ]);
 
@@ -36,7 +36,7 @@ class BeneficiaireControler extends Controller
             $beneficiaire->code_beneficiaire= $request->code_beneficiaire;
             $beneficiaire->nombeneficiaire= $request->nombeneficiaire;
            $beneficiaire->fonction= $request->fonction;
-            $beneficiaire->etablissement_id= $request->etablissement_id;
+            $beneficiaire->etablissement_id= $request->etablissement;
             $beneficiaire->situation= $request->situation;
 
             $beneficiaire->save();
@@ -47,6 +47,7 @@ class BeneficiaireControler extends Controller
         } else {
             // return with errrors
             return redirect()->route('beneficiaires.create')->withErrors($validator)->withInput();
+      
         }
     }
 

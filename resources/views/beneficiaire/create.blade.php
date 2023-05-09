@@ -45,7 +45,7 @@
 
                     <div class="mb-3">
                         <label for="fonction" class="form-label">fonction</label>
-                        <input type="text" name="fonction" id="fonction" placeholder="Enter Téléphone" class="form-control @error('situation') is-invalid @enderror" value="{{ old('situation') }}">
+                        <input type="text" name="fonction" id="fonction" placeholder="Fonction" class="form-control @error('situation') is-invalid @enderror" value="{{ old('situation') }}">
                         @error('fonction')
                             <p class="invalid-feedback">{{ $message }}</p>    
                         @enderror                        
