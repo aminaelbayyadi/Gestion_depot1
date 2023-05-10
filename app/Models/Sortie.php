@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Sortie extends Model
 {
     use HasFactory;
-    protected $primaryKey='idreception';
+    protected $primaryKey='idsortie';
     protected $fillable =['num_sortie','datesortie','nbr_article_sortie','beneficiaire_id'];
+
+    public function Beneficiaires()
+    {
+        return $this->belongsTo(Beneficiaire::class, 'beneficiaire_id', 'idbeneficiaire');
+    }
 }

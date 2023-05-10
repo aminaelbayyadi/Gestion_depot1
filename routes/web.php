@@ -89,6 +89,6 @@ Route::get('/beneficiaires/{beneficiaire}/edit',[BeneficiaireControler::class,'e
 Route::put('/beneficiaires/{beneficiaire}',[BeneficiaireControler::class,'update'])->name('beneficiaires.update');
 Route::delete('/beneficiaires/{beneficiaire}',[BeneficiaireControler::class,'destroy'])->name('beneficiaires.destroy');
 
-Route::get('/sorties/{sortie}',[SortieController::class,'index'])->name('sortie.index');
+Route::get('/sorties',[App\Http\Controllers\SortieController::class,'index'])->name('sortie.index');
 Route::get('/sortieform', [App\Http\Controllers\SortieController::class, 'select'])->name('sortie.select');
 Route::post('/sortieform',[App\Http\Controllers\SortieController::class,'save'])->name('sortie.save');

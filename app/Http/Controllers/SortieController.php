@@ -11,12 +11,15 @@ class SortieController extends Controller
     public function index()
     {
         $beneficiaire = DB::table('beneficiaires')->get();
-        $sortie = DB::table('sorties')->get();
+        $Sorties = Sortie::join('beneficiaires', 'sorties.beneficiaire_id', '=', 'beneficiaires.idbeneficiaire')->orderBy('idbeneficiaire','DESC')
+        ->paginate(50);
         
         
-        return view('formselect',compact('sortie','beneficiaire'));
+        return view('sortie.list',compact('Sorties','beneficiaire'));
        
     }
+
+
 
     public function select(){
         $produits = DB::table('produits')->get();
@@ -78,7 +81,12 @@ class SortieController extends Controller
             
             // Redirect to the Sorties index page with a success message
             
-        }
+       
+
+        public function edit(){}
+        public function delete(){}
+
+    }       
         
 
 

@@ -57,7 +57,7 @@ class FormControler extends Controller
    
 
 
-       return redirect()->route('reception.index')->with('success', 'Reception created successfully.');
+       return redirect()->route('receptions.index')->with('success', 'Reception created successfully.');
     }
 
 
