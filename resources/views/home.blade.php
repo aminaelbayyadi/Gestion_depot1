@@ -2,10 +2,10 @@
 @extends('layouts.sidebar')
 @section('content')
 <div class="container">
-<div class="row">
-        <div class="col-md-6">
+<div class="row" >
+ <div class="col-md-6">
             <div class="card">
-                <div class="card-header">Nombre de produits</div>
+                <div class="card-header" >Nombre de produits</div>
                 <div class="card-body" id="products-chart"></div>
                 
             </div>

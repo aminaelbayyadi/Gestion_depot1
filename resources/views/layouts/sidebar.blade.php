@@ -19,27 +19,12 @@
 </head>
 <body>
     <nav class="sidebar close">
+        <br><br><br><br>
         <header>
-            <div class="image-text">
-                <span class="image">
-                <img src="{{asset('/img/SFE.png')}}" style="height: 60px;" >
-                </span>
-
-                <div class="text logo-text">
-                    <span class="name">Admin</span>
-                </div>
-            </div>
-
             <i class='bx bx-chevron-right toggle' style="background-color: rgb(255, 210, 48);" ></i>
         </header>
-
         <div class="menu-bar">
             <div class="menu">
-
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="text" placeholder="Search...">
-                </li>
 
                     <li class="nav-link">
                         <a href="/home">
@@ -49,28 +34,28 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="/show_produits">
+                        <a href="produit">
                             <i class='bx bx-bar-chart-alt-2 icon' ></i>
                             <span class="text nav-text">Produits</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
-                            <i class='bx bx-bell icon'></i>
-                            <span class="text nav-text">Notifications</span>
+                        <a href="fournisseur">
+                        <i class='bx bx-group icon'></i>
+                            <span class="text nav-text">Fournisseur</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="reception">
                             <i class='bx bx-pie-chart-alt icon' ></i>
                             <span class="text nav-text">Analytics</span>
                         </a>
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="stock">
                             <i class='bx bx-heart icon' ></i>
                             <span class="text nav-text">Likes</span>
                         </a>
@@ -164,9 +149,9 @@ modeSwitch.addEventListener("click" , () =>{
 
 :root{
     /* ===== Colors ===== */
-    --body-color: #E4E9F7;
+    --body-color:#dee2e6;
     --sidebar-color: #FFF;
-    --primary-color: #695CFE;
+    --primary-color:    #FF8800;
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDD;
     --text-color: #707070;

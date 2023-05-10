@@ -62,7 +62,7 @@ Route::get('/receptions/{reception}',[ReceptionControler::class,'index'])->name(
 
 
 
-Route::get('/', function () {
+Route::get('/form/select', function () {
     return redirect('form/select');
 });
 Route::get('/form/select', [App\Http\Controllers\FormControler::class, 'index'])->name('form/select');
