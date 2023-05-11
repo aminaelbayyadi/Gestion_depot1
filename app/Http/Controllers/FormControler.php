@@ -25,8 +25,13 @@ class FormControler extends Controller
         // $selectedProducts = $request->input('produitsSelected');
          $quantities = $request->input('quantities');
      
-         // Calculate the sum of quantities
-         $nbrArticles = array_sum($quantities);
+         $lastid = Reception::latest()->first()-> idreception;
+      
+       $produitsSelected = $request->input('produitsSelected');
+       $quantities = $request->input('quantities');
+
+       $nbrArticles = count($produitsSelected);
+         
         // return with errrors
        // return redirect()->route('stock.index')->withErrors($validator)->withInput();
        $reception=new Reception();
@@ -36,10 +41,7 @@ class FormControler extends Controller
        $reception->save();
 
  
-       $lastid = Reception::latest()->first()-> idreception;
-      
-       $produitsSelected = $request->input('produitsSelected');
-       $quantities = $request->input('quantities');
+       
        
        // Loop through the selected products and their quantities
        for ($i = 0; $i < count($produitsSelected); $i++) {

@@ -41,8 +41,15 @@ class SortieController extends Controller
         // $selectedProducts = $request->input('produitsSelected');
          $quantities = $request->input('quantities');
      
+
+         $lastid = Sortie::latest()->first()-> idsortie;
+      
+         $produitsSelected = $request->input('produitsSelected');
+         $quantities = $request->input('quantities');
+  
          // Calculate the sum of quantities
-         $nbrArticles = array_sum($quantities);
+         $nbrArticles = count($produitsSelected);
+         
         // return with errrors
        // return redirect()->route('stock.index')->withErrors($validator)->withInput();
        $Sortie=new Sortie();
@@ -52,10 +59,7 @@ class SortieController extends Controller
        $Sortie->save();
 
  
-       $lastid = Sortie::latest()->first()-> idsortie;
-      
-       $produitsSelected = $request->input('produitsSelected');
-       $quantities = $request->input('quantities');
+   
        
        // Loop through the selected products and their quantities
        for ($i = 0; $i < count($produitsSelected); $i++) {
