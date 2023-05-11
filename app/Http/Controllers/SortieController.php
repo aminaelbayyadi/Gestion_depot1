@@ -22,7 +22,11 @@ class SortieController extends Controller
 
 
     public function select(){
-        $produits = DB::table('produits')->get();
+        $produits = DB::table('produits')
+        ->join('stock', 'produits.idproduit', '=', 'stock.produit_id')
+        ->select('produits.*', 'stock.quantiter')
+        ->get();
+        
         $beneficiaire = DB::table('beneficiaires')->get();
         return view('sortie.create',compact('beneficiaire','produits'));
 

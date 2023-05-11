@@ -125,7 +125,8 @@
                 <tr>
                     <th></th>
                     <th>Produits</th>
-                    <th>Quantite</th>
+                    <th>Quantite disponible </th>
+                    <th>Quantite a livrer</th>
                 </tr>
             </thead>
             <tbody>
@@ -140,7 +141,8 @@
                             </div>
                         </td>
                         <td>{{ $produit->nomproduit }}</td>
-                        <td>  </td>
+                    
+                        <td> {{ $produit->quantiter }}   </td>
                         <td>
                             <div class="form-group">
                                 <input type="number" class="form-control" name="quantities[]" min="0" value="0">

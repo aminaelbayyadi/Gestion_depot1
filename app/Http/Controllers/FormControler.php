@@ -57,7 +57,7 @@ class FormControler extends Controller
    
 
 
-       return redirect()->route('receptions.index',['reception' => $lastid])->with('success', 'Reception created successfully.');
+       return redirect()->route('form/select')->with('success', 'Reception created successfully.');
     }
 
 

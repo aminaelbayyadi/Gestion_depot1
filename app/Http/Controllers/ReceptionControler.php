@@ -12,7 +12,9 @@ class receptionControler extends Controller
 {
     public function index(){
         $fournisseur = DB::table('fournisseurs')->get();
-        return view('reception/select',compact('fournisseur'));
+        $receptions = Reception::join('fournisseurs', 'receptions.fournisseur_id', '=', 'fournisseurs.id')->orderBy('idreception','DESC')
+        ->paginate(50);
+        return view('reception.list',compact('fournisseur','receptions'));
 
     }
     public function create(Request $request){

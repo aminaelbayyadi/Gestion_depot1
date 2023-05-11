@@ -18,9 +18,6 @@
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
             <div class="h4">Stock</div>
-            <div>
-                <a href="{{ route('stock.create') }}" class="btn btn-primary">Create</a>
-            </div>
         </div>
 
         @if(Session::has('success'))
@@ -37,7 +34,7 @@
                         <th >Code Produit</th>
                         <th>Nom Produit</th>
                         <th>Quantite</th>
-                        <th width="150">Action</th>
+                        
                     </tr>
 
                     @if($stock->isNotEmpty())
@@ -49,8 +46,7 @@
                         <td>{{ $stock->quantiter}}</td>
                        
                         <td>
-                            <a href="{{ route('stock.edit',$stock->idstock) }}" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="#" onclick="deletestock({{ $stock->idstock }})" class="btn btn-danger btn-sm">Delete</a>
+                            
                             <form id="stock-edit-action-{{ $stock->idstock }}" action="{{ route('stock.destroy',$stock->idstock) }}" method="post">
                             @csrf
                                 @method('delete')
