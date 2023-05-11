@@ -25,7 +25,7 @@ class FormControler extends Controller
         // $selectedProducts = $request->input('produitsSelected');
          $quantities = $request->input('quantities');
      
-         $lastid = Reception::latest()->first()-> idreception;
+        
       
        $produitsSelected = $request->input('produitsSelected');
        $quantities = $request->input('quantities');
@@ -40,7 +40,9 @@ class FormControler extends Controller
        $reception->nbrarticle =$nbrArticles;
        $reception->save();
 
- 
+       $lastid = Reception::latest()->first()-> idreception;
+
+       
        
        
        // Loop through the selected products and their quantities
@@ -59,7 +61,7 @@ class FormControler extends Controller
    
 
 
-       return redirect()->route('form/select')->with('success', 'Reception created successfully.');
+       return redirect()->route('receptions.index')->with('success', 'Reception created successfully.');
     }
 
 

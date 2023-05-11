@@ -132,7 +132,7 @@
             <tbody>
             @if($produits->isNotEmpty())
             
-                    @foreach ($produits as $produit)
+                    @foreach ($produits as $i => $produit)
                     <tr>
                      
                         <td>
