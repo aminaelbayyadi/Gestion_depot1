@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Sortie;
+use App\Models\Beneficiaire;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use DB;
@@ -27,7 +28,7 @@ class SortieController extends Controller
         ->select('produits.*', 'stock.quantiter')
         ->get();
         
-        $beneficiaire = DB::table('beneficiaires')->get();
+        $beneficiaire = Beneficiaire::join('etablissements', 'beneficiaires.etablissement_id', '=', 'etablissements.idetablissement')->orderBy('idbeneficiaire','DESC')->paginate(50);
         return view('sortie.create',compact('beneficiaire','produits'));
 
     }

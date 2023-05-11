@@ -102,7 +102,7 @@
                     <select class="form-control" name="beneficiaire" id="beneficiaire">
                         <option selected disabled>--- Select beneficiaire ---</option>
                         @foreach ($beneficiaire as $beneficiaires )
-                        <option value="{{ $beneficiaires->idbeneficiaire }}">{{ $beneficiaires->nombeneficiaire }}</option>
+                        <option value="{{ $beneficiaires->idbeneficiaire }}">{{ $beneficiaires->nombeneficiaire }} - {{ $beneficiaires->nometablissement }}</option>
                         @endforeach
                     </select>
                 </div>
