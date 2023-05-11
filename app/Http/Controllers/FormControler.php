@@ -23,12 +23,12 @@ class FormControler extends Controller
             
          // Retrieve the selected products and their quantities
         // $selectedProducts = $request->input('produitsSelected');
-         $quantities = $request->input('quantities');
+         
      
         
       
        $produitsSelected = $request->input('produitsSelected');
-       $quantities = $request->input('quantities');
+       $quantities = $request->input('quantities',);
 
        $nbrArticles = count($produitsSelected);
          
@@ -42,22 +42,19 @@ class FormControler extends Controller
 
        $lastid = Reception::latest()->first()-> idreception;
 
+
        
        
-       
-       // Loop through the selected products and their quantities
-       for ($i = 0; $i < count($produitsSelected); $i++) {
-           $produitId = $produitsSelected[$i];
-           $quantity = $quantities[$i];
-   
-           // Insert the product and its quantity into the detailreception table
-           DB::table('detailsreception')->insert([
+       foreach ($request->input('produitsSelected', []) as $produitId) {
+        $quantity = $request->input('quantities.' . $produitId, 0);
+        
+        // Insert the product and its quantity into the detailSortie table
+        DB::table('detailsreception')->insert([
             'produit_id' => $produitId,
             'reception_id' => $lastid,
-               
-               'quantite_recue' => $quantity
-           ]);
-       }
+            'quantite_recue' => $quantity
+        ]);
+    }
    
 
 

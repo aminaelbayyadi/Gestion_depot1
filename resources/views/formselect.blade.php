@@ -132,19 +132,19 @@
             <tbody>
             @if($produits->isNotEmpty())
             
-                    @foreach ($produits as $i => $produit)
+                    @foreach ($produits as $produit)
                     <tr>
                      
                         <td>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="produitsSelected[]" value="{{ $produit->idproduit }}">
+                                <input class="form-check-input" type="checkbox" name="produitsSelected[{{ $produit->idproduit }}]" value="{{ $produit->idproduit }}">
                             </div>
                         </td>
                         <td>{{ $produit->nomproduit }}</td>
                         <td>  </td>
                         <td>
                             <div class="form-group">
-                                <input type="number" class="form-control" name="quantities[]" min="0" value="0">
+                                <input type="number" class="form-control" name="quantities[{{ $produit->idproduit }}]" min="0" value="0">
                             </div>
                         </td>
                     </tr>

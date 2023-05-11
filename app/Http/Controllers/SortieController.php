@@ -42,7 +42,7 @@ class SortieController extends Controller
          $quantities = $request->input('quantities');
      
 
-         $lastid = Sortie::latest()->first()-> idsortie;
+        
       
          $produitsSelected = $request->input('produitsSelected');
          $quantities = $request->input('quantities');
@@ -58,22 +58,22 @@ class SortieController extends Controller
        $Sortie->nbr_article_sortie =$nbrArticles;
        $Sortie->save();
 
- 
+       $lastid = Sortie::latest()->first()-> idsortie;
    
        
-       // Loop through the selected products and their quantities
-       for ($i = 0; $i < count($produitsSelected); $i++) {
-           $produitId = $produitsSelected[$i];
-           $quantity = $quantities[$i];
-   
-           // Insert the product and its quantity into the detailSortie table
-           DB::table('detailsortie')->insert([
+     
+        
+       
+       foreach ($request->input('produitsSelected', []) as $produitId) {
+        $quantity = $request->input('quantities.' . $produitId, 0);
+        
+        // Insert the product and its quantity into the detailSortie table
+        DB::table('detailsortie')->insert([
             'produit_id' => $produitId,
             'sortie_id' => $lastid,
-               
-               'quantite' => $quantity
-           ]);
-       }
+            'quantite' => $quantity
+        ]);
+    }
    
 
 
