@@ -9,7 +9,7 @@ class Reception extends Model
 {
     use HasFactory;
     protected $primaryKey='idreception';
-    protected $fillable =['fournisseur_id','datereception','nbrarticle'];
+    protected $fillable =['numreception','fournisseur_id','datereception','nbrarticle'];
 
     
     public function Fournisseurs()

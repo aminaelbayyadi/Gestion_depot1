@@ -45,28 +45,32 @@
 
                     <div class="mb-3">
                         <label for="fonction" class="form-label">fonction</label>
-                        <input type="text" name="fonction" id="fonction" placeholder="Fonction" class="form-control @error('situation') is-invalid @enderror" value="{{ old('situation') }}">
-                        @error('fonction')
-                            <p class="invalid-feedback">{{ $message }}</p>    
-                        @enderror                        
+                        <select class="form-control" name="fonction" id="fonction">
+                            <option selected disabled>--- Selectionner la fonction ---</option>
+                            <option value="Directeur(rice)">Directeur(rice)</option>
+                            <option value="Fonctionnaire">Fonctionnaire</option>
+                          
+                        </select>                       
                     </div>
                     <div class="mb-3">
                         <label for="etablissement" class="form-label">nom etablissement</label>
 
                         <select class="form-control" name="etablissement" id="etablissement">
-                        <option selected disabled>--- Select etablissement ---</option>
-                        @foreach ($etablissements as $etablissement )
-                        <option value="{{ $etablissement->idetablissement }}">{{ $etablissement->nometablissement }}</option>
-                        @endforeach
-                    </select>
+                            <option selected disabled>--- Select etablissement ---</option>
+                            @foreach ($etablissements as $etablissement )
+                            <option value="{{ $etablissement->idetablissement }}">{{ $etablissement->nometablissement }}</option>
+                            @endforeach
+                        </select>
                                               
                     </div>
                     <div class="mb-3">
                         <label for="situation" class="form-label">situation</label>
-                        <input type="text" name="situation" id="situation" placeholder="situation" class="form-control @error('situation') is-invalid @enderror" value="{{ old('situation') }}">
-                        @error('situation')
-                            <p class="invalid-feedback">{{ $message }}</p>    
-                        @enderror                        
+                        <select class="form-control" name="situation" id="situation">
+                            <option selected disabled>--- Selectionner la situation ---</option>
+                            <option value="Actif">Actif</option>
+                            <option value="non actif">non actif</option>
+                          
+                        </select>                        
                     </div>
                 </div>
             </div>

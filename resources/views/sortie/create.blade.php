@@ -115,8 +115,15 @@
              
             <div class="form-group" id="sortie">
                 <div class="input-group">
+                    <label for="name" class="col-sm-2 col-form-label">Numero de sortie *</label>
+                    <input id="numsortie" type="text"  class="form-control @error('sortie') is-invalid @enderror" name="numsortie" value="{{ old('numsortie') }}" >
+                    
+                </div>
+            </div>
+            <div class="form-group" id="sortie">
+                <div class="input-group">
                     <label for="name" class="col-sm-2 col-form-label">Date de sortie *</label>
-                    <input id="sortie" type="date" class="form-control @error('sortie') is-invalid @enderror" name="sortie" value="{{ old('sortie') }}" >
+                    <input id="sortie" type="date"  class="form-control @error('sortie') is-invalid @enderror" name="sortie" value="{{ old('sortie') }}" >
                     
                 </div>
             </div>

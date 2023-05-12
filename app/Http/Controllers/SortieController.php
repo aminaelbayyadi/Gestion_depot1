@@ -57,6 +57,7 @@ class SortieController extends Controller
         $validator = Validator::make($request->all(),[
             'beneficiaire' =>'required',
             'sortie' =>'required',
+            'numsortie' => 'required',
             'quantities' =>'required',
             'produitsSelected' =>'required',
            
@@ -81,6 +82,7 @@ class SortieController extends Controller
        $Sortie=new Sortie();
        $Sortie->beneficiaire_id  = $request->beneficiaire;
        $Sortie->datesortie = $request->sortie;
+       $Sortie->numsortie = $request->numsortie;
        $Sortie->nbr_article_sortie =$nbrArticles;
        $Sortie->save();
 

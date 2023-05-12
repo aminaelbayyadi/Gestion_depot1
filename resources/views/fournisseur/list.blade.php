@@ -36,7 +36,7 @@
             <div class="card-body">
                 <table class="table table-striped">
                     <tr>
-                        <th width="30">ID</th>
+                       
                         <th>Image</th>
                         <th >code</th>
                         <th>nomfournisseur</th>
@@ -49,7 +49,7 @@
                     @if($fournisseurs->isNotEmpty())
                     @foreach ($fournisseurs as $fournisseur)
                     <tr valign="middle">
-                        <td>{{ $fournisseur->id }}</td>
+                      
                         <td>
                             @if($fournisseur->imagefour != '' && file_exists(public_path().'/uploads/fournisseurs/'.$fournisseur->imagefour))
                             <img src="{{ url('uploads/fournisseurs/'.$fournisseur->imagefour) }}" alt="" width="40" height="40" class="rounded-circle">

@@ -30,7 +30,7 @@
             <div class="card-body">
                 <table class="table table-striped">
                     <tr>
-                        <th width="30">ID</th>
+                        
                         <th >Code Produit</th>
                         <th>Nom Produit</th>
                         <th>Quantite</th>
@@ -40,7 +40,7 @@
                     @if($stock->isNotEmpty())
                     @foreach ($stock as $stock)
                     <tr valign="middle">
-                        <td>{{ $stock->idstock }}</td>
+                       
                         <td >{{ $stock->codeproduit }}</td>
                         <td>{{ $stock->nomproduit }}</td>
                         <td>{{ $stock->quantiter}}</td>

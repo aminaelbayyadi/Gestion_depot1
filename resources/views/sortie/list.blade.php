@@ -36,7 +36,7 @@
             <div class="card-body">
                 <table class="table table-striped">
                     <tr>
-                        <th width="30">idSortie</th>
+                        <th >Numero du sortie</th>
                         <th>Date Sortie</th>
                         <th>Nombre des articles</th>
                         <th >Nom beneficiaire</th>
@@ -48,7 +48,7 @@
                     @if($Sorties->isNotEmpty())
                     @foreach ($Sorties as $Sortie)
                     <tr valign="middle">
-                        <td>{{ $Sortie->idsortie }}</td>
+                        <td>{{ $Sortie->numsortie }}</td>
                         <td >{{ $Sortie->datesortie }}</td>
                         <td>{{ $Sortie->nbr_article_sortie }}</td>
                         <td>{{ $Sortie->nombeneficiaire }}</td>

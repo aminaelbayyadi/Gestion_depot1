@@ -36,7 +36,7 @@
             <div class="card-body">
                 <table class="table table-striped">
                     <tr>
-                        <th width="30">IDetablissement</th>
+                       
                         <th >codeetablissement</th>
                         <th>nometablissement</th>
                         <th>Télephone</th>
@@ -47,7 +47,7 @@
                     @if($etablissements->isNotEmpty())
                     @foreach ($etablissements as $etablissement)
                     <tr valign="middle">
-                        <td>{{ $etablissement->idetablissement }}</td>
+                        
                         <td >{{ $etablissement->codetablissement }}</td>
                         <td>{{ $etablissement->nometablissement }}</td>
                         <td>{{ $etablissement->tel_fixe_etablissement }}</td>

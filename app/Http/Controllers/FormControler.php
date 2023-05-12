@@ -24,6 +24,7 @@ class FormControler extends Controller
             $validator = Validator::make($request->all(),[
                 'fournisseur' =>'required',
                 'reception' =>'required',
+                'numreception' => 'required',
                 'quantities' =>'required',
                 'produitsSelected' =>'required',
                
@@ -42,6 +43,7 @@ class FormControler extends Controller
        // return redirect()->route('stock.index')->withErrors($validator)->withInput();
        $reception=new Reception();
        $reception->fournisseur_id = $request->fournisseur;
+       $reception->numreception = $request->numreception;
        $reception->datereception = $request->reception;
        $reception->nbrarticle =$nbrArticles;
        $reception->save();

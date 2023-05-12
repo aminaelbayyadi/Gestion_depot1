@@ -6,6 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <body>
 
@@ -14,14 +15,14 @@
 <br><br>
 <br>
 
-<a href="produits" class="w3-bar-item w3-button"><i class="fa fa-home"></i> home</a>
-  <a href="produits" class="w3-bar-item w3-button">les produits</a>
-  <a href="fournisseurs" class="w3-bar-item w3-button"> les fournisseurs</a>
-  <a href="etablissements" class="w3-bar-item w3-button"> les établissements</a>
-  <a href="receptions" class="w3-bar-item w3-button"> les receptions</a>
-  <a href="beneficiaires" class="w3-bar-item w3-button"> les beneficiaires</a>
-  <a href="stock" class="w3-bar-item w3-button"> stock</a>
-  <a href="sorties" class="w3-bar-item w3-button"> les sorties</a>
+<a href="#" class="w3-bar-item w3-button"><i class="bi bi-house"></i> Acceuil</a>
+  <a href="{{ route('produits.index') }}" class="w3-bar-item w3-button"><i class="bi bi-box-seam"></i> Produits</a>
+  <a href="{{ route('fournisseurs.index') }}" class="w3-bar-item w3-button"><i class="bi bi-truck"></i> Fournisseurs</a>
+  <a href="{{ route('etablissements.index') }}" class="w3-bar-item w3-button"><i class="bi bi-building"></i> Etablissements</a>
+  <a href="{{ route('receptions.index') }}" class="w3-bar-item w3-button"><i class="bi bi-reception-3"></i> Receptions</a>
+  <a href="{{ route('beneficiaires.index') }}" class="w3-bar-item w3-button"><i class="bi bi-people"></i> Beneficiaires</a>
+  <a href="{{ route('stock.index') }}" class="w3-bar-item w3-button"><i class="bi bi-archive"></i> Stock</a>
+  <a href="{{ route('sortie.index') }}" class="w3-bar-item w3-button"><i class="bi bi-journal-richtext"></i> Sorties</a>
   <a href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="w3-bar-item w3-button"> {{ __('Déconnexion') }} </a>
 
   

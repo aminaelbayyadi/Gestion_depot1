@@ -103,6 +103,12 @@
                     {{ Session::get('error') }}
                 </div>
             @endif
+            <div class="input-group">
+                    <label for="name" class="col-sm-2 col-form-label">Numero de la reception *</label>
+                    <input id="numreception" type="text"  class="form-control @error('numreception') is-invalid @enderror" name="numreception" value="{{ old('numreception') }}" >
+                    
+                </div>
+
             <div class="form-group" id="fournisseur">
                 <div class="input-group">
                     <label for="name" class="col-sm-2 col-form-label">fournisseur *</label>
