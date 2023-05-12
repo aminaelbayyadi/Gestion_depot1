@@ -22,7 +22,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-            <div><img src="{{asset('assets/images/logo.png')}}" style="height: 60px;" ></div>
+            <div><img src="{{asset('assets/images/logo.png')}}" style="height: 50px;" ></div>
                <!-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>-->
