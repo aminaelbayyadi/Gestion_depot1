@@ -46,12 +46,20 @@
                     </tr>
 
                     @if($receptions->isNotEmpty())
-                    @foreach ($receptions as $reception)
+
+                    @php
+                          $mergedReceptions = $Allreceptions->merge($receptions);
+                    @endphp
+                    @foreach ($mergedReceptions as $reception)
                     <tr valign="middle">
                         <td>{{ $reception->idreception }}</td>
                         <td >{{ $reception->datereception }}</td>
                         <td>{{ $reception->nbrarticle }}</td>
-                        <td>{{ $reception->nomfour }}</td>
+                        <td> @if(isset($reception->fournisseur_id))
+                                {{ $reception->nomfour }}
+                            @else
+                                Fournisseur non plus disponible
+                            @endif</td>
                         
 
                         <td>
