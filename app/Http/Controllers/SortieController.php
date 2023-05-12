@@ -37,8 +37,34 @@ class SortieController extends Controller
         public function save(Request $request)
         {
             
-         // Retrieve the selected products and their quantities
-        // $selectedProducts = $request->input('produitsSelected');
+       
+        // $messages = [    'quantities.required' => '.', 
+        //       'quantities.min' => 'Le quantité doit être plus que :min.',
+        //           'quantities.max' => 'Le quantité doit être moins que la quantite disponible :max.',];
+
+
+        //           $validator = Validator::make($request->all(),[
+        //             'fournisseur' =>'required',
+        //             'reception' =>'required',
+        //             'quantities' =>'required',
+        //             'produitsSelected' =>'required',
+                   
+        //         ],$messages);
+        //         if ($validator->fails()) {
+        //             return redirect()->back()->withErrors($validator)->withInput();
+        //         }
+        
+        $validator = Validator::make($request->all(),[
+            'beneficiaire' =>'required',
+            'sortie' =>'required',
+            'quantities' =>'required',
+            'produitsSelected' =>'required',
+           
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->with('error','Veulliez remplir tous les informations !')->withInput();
+                 }
          $quantities = $request->input('quantities');
      
 
@@ -73,6 +99,11 @@ class SortieController extends Controller
             'sortie_id' => $lastid,
             'quantite' => $quantity
         ]);
+
+         // Update the stock table with the new quantity
+    DB::table('stock')
+    ->where('produit_id', $produitId)
+    ->decrement('quantiter', $quantity);
     }
    
 

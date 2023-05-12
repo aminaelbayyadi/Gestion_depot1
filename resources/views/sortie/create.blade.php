@@ -95,6 +95,11 @@
         <form action="{{ route('sortie.save') }}" method="post" enctype="multipart/form-data">
             @csrf
             <h2>Form Select Basic</h2>
+            @if(Session::has('error'))
+                <div class="alert alert-danger">
+                    {{ Session::get('error') }}
+                </div>
+            @endif
             <hr>
             <div class="form-group" id="beneficiaire">
                 <div class="input-group">
@@ -111,7 +116,7 @@
             <div class="form-group" id="sortie">
                 <div class="input-group">
                     <label for="name" class="col-sm-2 col-form-label">Date de sortie *</label>
-                    <input id="reception" type="date" class="form-control @error('sortie') is-invalid @enderror" name="sortie" value="{{ old('sortie') }}" >
+                    <input id="sortie" type="date" class="form-control @error('sortie') is-invalid @enderror" name="sortie" value="{{ old('sortie') }}" >
                     
                 </div>
             </div>
@@ -145,7 +150,7 @@
                         <td> {{ $produit->quantiter }}   </td>
                         <td>
                             <div class="form-group">
-                                <input type="number" class="form-control" name="quantities[{{ $produit->idproduit }}]" min="0" value="0">
+                                <input type="number" class="form-control" name="quantities[{{ $produit->idproduit }}]" min="0" max="{{ $produit->quantiter }}" title="Veuillez saisir une quantité entre 1 et {{ $produit->quantiter }}"  value="0">
                             </div>
                         </td>
                     </tr>

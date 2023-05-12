@@ -97,13 +97,19 @@
             @csrf
             <h2>Form Select Basic</h2>
             <hr>
+
+            @if(Session::has('error'))
+                <div class="alert alert-danger">
+                    {{ Session::get('error') }}
+                </div>
+            @endif
             <div class="form-group" id="fournisseur">
                 <div class="input-group">
                     <label for="name" class="col-sm-2 col-form-label">fournisseur *</label>
-                    <select class="form-control" name="fournisseur" id="fournisseur">
+                    <select class="form-control" name="fournisseur" id="fournisseur" required>
                         <option selected disabled>--- Select fournisseur ---</option>
                         @foreach ($fournisseur as $fournisseurs )
-                        <option value="{{ $fournisseurs->id }}">{{ $fournisseurs->nomfour }}</option>
+                        <option value="{{ $fournisseurs->id }}" required>{{ $fournisseurs->nomfour }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -112,7 +118,7 @@
             <div class="form-group" id="reception">
                 <div class="input-group">
                     <label for="name" class="col-sm-2 col-form-label">Date de reception *</label>
-                    <input id="reception" type="date" class="form-control @error('reception') is-invalid @enderror" name="reception" value="{{ old('reception') }}" >
+                    <input id="reception" type="date" class="form-control @error('reception') is-invalid @enderror" name="reception" value="{{ old('reception') }}" required>
                     
                 </div>
             </div>
@@ -144,7 +150,7 @@
                         <td>  </td>
                         <td>
                             <div class="form-group">
-                                <input type="number" class="form-control" name="quantities[{{ $produit->idproduit }}]" min="0" value="0">
+                                <input type="number" class="form-control" name="quantities[{{ $produit->idproduit }}]" min="0" value="0" >
                             </div>
                         </td>
                     </tr>
@@ -180,21 +186,7 @@
 
 
 
-    <script>
-        $(function()
-        {
-            $('#fournisseurs').hide();
-           // $('#capital').hide();
-           // $('#fournisseur').change(function()
-           // {
-                // fournisseur
-                //if ($('#fournisseur').val() != null) {
-                   // $('#province').show();
-                    //$('#capital').show();
-               // }
-           // });
-        });
-    </script>
+    
   
 </body>
 </html>
