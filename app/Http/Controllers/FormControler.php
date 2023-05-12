@@ -12,7 +12,7 @@ class FormControler extends Controller
     public function index()
     {
         $fournisseur = DB::table('fournisseurs')->get();
-        $produits = DB::table('produits')->get();
+        $produits = DB::table('produits')->join('stock', 'produits.idproduit', '=', 'stock.produit_id')->get();
         
         return view('formselect',compact('fournisseur','produits'));
        
@@ -21,9 +21,15 @@ class FormControler extends Controller
         public function save(Request $request)
         {
             
-         // Retrieve the selected products and their quantities
-        // $selectedProducts = $request->input('produitsSelected');
-         
+            $validator = Validator::make($request->all(),[
+                'fournisseur' =>'required',
+                'reception' =>'required',
+                'quantities' =>'required',
+                'produitsSelected' =>'required',
+               
+            ]);
+    
+            if($validator->passes()){
      
         
       
@@ -63,8 +69,11 @@ class FormControler extends Controller
    
 
 
-       return redirect()->route('receptions.index')->with('success', 'Reception created successfully.');
-    }
+       return redirect()->route('receptions.index')->with('success', 'Reception ajoutee.');
+}
+else{
+    return redirect()->route('form/select')->with('error', 'Veulliez remplir tous les informations !')->withInput();
+}
 
 
 
@@ -80,6 +89,6 @@ class FormControler extends Controller
         
 
 
-      
+    }     
     
 
