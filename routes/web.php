@@ -94,3 +94,4 @@ Route::get('/sortieform', [App\Http\Controllers\SortieController::class, 'select
 Route::post('/sortieform',[App\Http\Controllers\SortieController::class,'save'])->name('sortie.save');
 
 Route::get('/detailreception',[App\Http\Controllers\DetailreceptionControler::class,'index'])->name('detailreception.index');
+Route::get('/detailsortie',[App\Http\Controllers\DetailsortieControler::class,'index'])->name('detailsortie.index');

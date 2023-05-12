@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>beneficiaire</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -54,8 +57,10 @@
                         <td>{{ $beneficiaire->situation }}</td>
 
                         <td>
-                            <a href="{{ route('beneficiaires.edit',$beneficiaire->idbeneficiaire) }}" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="#" onclick="deletebeneficiaire({{ $beneficiaire->idbeneficiaire }})" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="{{ route('beneficiaires.edit',$beneficiaire->idbeneficiaire) }}" class="btn btn-success btn-sm "><span class="glyphicon glyphicon-edit"></span>
+</a>
+                            <a href="#" onclick="deletebeneficiaire({{ $beneficiaire->idbeneficiaire }})" class="btn btn-danger btn-sm " > <span class="glyphicon glyphicon-trash" ></span> 
+</a>
                             <form id="beneficiaire-edit-action-{{ $beneficiaire->idbeneficiaire }}" action="{{ route('beneficiaires.destroy',$beneficiaire->idbeneficiaire) }}" method="post">
                             @csrf
                                 @method('delete')

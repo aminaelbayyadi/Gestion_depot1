@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>SIMPLE LARAVEL 9 CRUD </title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -50,8 +53,8 @@
                         <td>{{ $etablissement->tel_fixe_etablissement }}</td>
                         <td>{{ $etablissement->adretablissement }}</td>
                         <td>
-                            <a href="{{ route('etablissements.edit',$etablissement->idetablissement) }}" class="btn btn-primary btn-sm">Edit</a>
-                            <a href="#" onclick="deleteetablissement({{ $etablissement->idetablissement }})" class="btn btn-danger btn-sm">Delete</a>
+                            <a href="{{ route('etablissements.edit',$etablissement->idetablissement) }}" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-edit"></span></a>
+                            <a href="#" onclick="deleteetablissement({{ $etablissement->idetablissement }})" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" ></span></a>
                             <form id="etablissement-edit-action-{{ $etablissement->idetablissement }}" action="{{ route('etablissements.destroy',$etablissement->idetablissement) }}" method="post">
                             @csrf
                                 @method('delete')
