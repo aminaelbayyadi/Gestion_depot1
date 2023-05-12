@@ -54,6 +54,11 @@ class FormControler extends Controller
             'reception_id' => $lastid,
             'quantite_recue' => $quantity
         ]);
+
+         // Update the stock table with the new quantity
+    DB::table('stock')
+    ->where('produit_id', $produitId)
+    ->increment('quantiter', $quantity);
     }
    
 

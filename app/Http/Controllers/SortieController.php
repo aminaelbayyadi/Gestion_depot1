@@ -73,6 +73,11 @@ class SortieController extends Controller
             'sortie_id' => $lastid,
             'quantite' => $quantity
         ]);
+
+         // Update the stock table with the new quantity
+    DB::table('stock')
+    ->where('produit_id', $produitId)
+    ->decrement('quantiter', $quantity);
     }
    
 
