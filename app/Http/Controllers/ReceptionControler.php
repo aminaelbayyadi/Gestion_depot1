@@ -14,7 +14,8 @@ class receptionControler extends Controller
         $fournisseur = DB::table('fournisseurs')->get();
         $receptions = Reception::join('fournisseurs', 'receptions.fournisseur_id', '=', 'fournisseurs.id')->orderBy('idreception','DESC')
         ->paginate(50);
-        return view('reception.list',compact('fournisseur','receptions'));
+        $Allreceptions =Reception::orderby('idreception','DESC')->paginate(50);
+        return view('reception.list',compact('fournisseur','receptions','Allreceptions'));
 
     }
     public function create(Request $request){
