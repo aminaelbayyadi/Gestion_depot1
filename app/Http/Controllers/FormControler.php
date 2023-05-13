@@ -42,7 +42,7 @@ class FormControler extends Controller
         // return with errrors
        // return redirect()->route('stock.index')->withErrors($validator)->withInput();
        $reception=new Reception();
-       $reception->fournisseur_id = $request->fournisseur;
+       $reception->nomfour = $request->fournisseur;
        $reception->numreception = $request->numreception;
        $reception->datereception = $request->reception;
        $reception->nbrarticle =$nbrArticles;
@@ -74,6 +74,8 @@ class FormControler extends Controller
        return redirect()->route('receptions.index')->with('success', 'Reception ajoutee.');
 }
 else{
+    
+
     return redirect()->route('form/select')->with('error', 'Veulliez remplir tous les informations !')->withInput();
 }
 

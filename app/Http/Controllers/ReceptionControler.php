@@ -12,10 +12,10 @@ class receptionControler extends Controller
 {
     public function index(){
         $fournisseur = DB::table('fournisseurs')->get();
-        $receptions = Reception::join('fournisseurs', 'receptions.fournisseur_id', '=', 'fournisseurs.id')->orderBy('idreception','DESC')
-        ->paginate(50);
-        $Allreceptions =Reception::orderby('idreception','DESC')->paginate(50);
-        return view('reception.list',compact('fournisseur','receptions','Allreceptions'));
+        // $receptions = Reception::join('fournisseurs', 'receptions.fournisseur_id', '=', 'fournisseurs.id')->orderBy('idreception','DESC')
+        // ->paginate(50);
+        $receptions =Reception::orderby('idreception','DESC')->paginate(50);
+        return view('reception.list',compact('fournisseur','receptions'));
 
     }
     public function create(Request $request){
@@ -28,7 +28,7 @@ class receptionControler extends Controller
     }
     public function store(Request $request){
         $validator = Validator::make($request->all(),[
-            'fourrnisseur_id' =>'required',
+            'nomfour' =>'required',
             'datereception' =>'required',
             'nbrarticle' =>'required'
         ]);
@@ -36,7 +36,7 @@ class receptionControler extends Controller
         if($validator->passes()){
             //save data
             $reception=new reception();
-            $reception->fourrnisseur_id = $request->fourrnisseur_id;
+            $reception->nomfour = $request->nomfour;
             $reception->datereception = $request->datereception;
             $reception->nbrarticle = $request->nbrarticle;
             $reception->save();

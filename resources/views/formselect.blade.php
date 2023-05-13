@@ -115,7 +115,7 @@
                     <select class="form-control" name="fournisseur" id="fournisseur" required>
                         <option selected disabled>--- Select fournisseur ---</option>
                         @foreach ($fournisseur as $fournisseurs )
-                        <option value="{{ $fournisseurs->id }}" required>{{ $fournisseurs->nomfour }}</option>
+                        <option value="{{ $fournisseurs->nomfour }}" required>{{ $fournisseurs->nomfour }}</option>
                         @endforeach
                     </select>
                 </div>
