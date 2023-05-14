@@ -17,6 +17,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <meta charset="utf-8">
+    {{-- ChartStyle --}}
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+    
 </head>
 <body>
     <div id="app">
@@ -81,5 +87,22 @@
     </div>
      <!-- Scripts -->
      <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
-</body>
+
+    
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+    {{-- ChartScript --}}
+    @if(session()->has('receptionsChart'))
+            @php
+                $receptionsChart = session('receptionsChart');
+            @endphp
+            {!! $receptionsChart->container() !!}
+            @if($receptionsChart)
+    {!! $receptionsChart->script() !!}
+    @endif
+        @endif
+   
 </html>
+
+    
+
