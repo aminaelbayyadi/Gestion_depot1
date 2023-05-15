@@ -5,6 +5,7 @@ use App\Models\Fournisseur;
 use App\Models\Produit;
 use App\Models\Stock;
 use App\Models\reception;
+use App\Models\sortie;
 use Illuminate\Support\Facades\Session;
 use App\Charts\UserChart;
 
@@ -69,8 +70,45 @@ class HomeController extends Controller
         ]);
         session(['receptionsChart' => $receptionsChart]);
 
+        $sortiesData = Sortie::selectRaw("DATE_FORMAT(datesortie, '%m/%Y') as month_year, count(*) as count")
+        ->groupBy('month_year')
+        ->get();
+    
+        $labels = $sortiesData->pluck('month_year');
+        $counts = $sortiesData->pluck('count');
+    
+        $sortiesChart = session('sortiesChart');
+        $sortiesChart = new UserChart;
+        $sortiesChart->labels($labels);
+        $sortiesChart->dataset('Nombre de sorties', 'bar', $counts);
+        $sortiesChart->options([
+            'title' => [
+                'display' => true,
+                'text' => 'Nombre de sorties par mois'
+            ],
+            'scales' => [
+                'xAxes' => [
+                    [
+                        'scaleLabel' => [
+                            'display' => true,
+                            'labelString' => 'Mois'
+                        ]
+                    ]
+                ],
+                'yAxes' => [
+                    [
+                        'scaleLabel' => [
+                            'display' => true,
+                            'labelString' => 'Nombre de sorties'
+                        ]
+                    ]
+                ]
+            ]
+        ]);
+        session(['sortiesChart' => $sortiesChart]);
+
         
-        return view('home', [ 'receptionsChart' => $receptionsChart ] );
+        return view('home',compact('receptionsChart','sortiesChart'));
     }
 }
 

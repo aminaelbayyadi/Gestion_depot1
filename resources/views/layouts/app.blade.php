@@ -101,6 +101,16 @@
     {!! $receptionsChart->script() !!}
     @endif
         @endif
+        {{-- ChartScript --}}
+    @if(session()->has('sortiesChart'))
+            @php
+                $sortiesChart = session('sortiesChart');
+            @endphp
+            {!! $sortiesChart->container() !!}
+            @if($sortiesChart)
+    {!! $sortiestChart->script() !!}
+    @endif
+        @endif
    
 </html>
 
