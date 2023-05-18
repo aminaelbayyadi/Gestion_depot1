@@ -30,7 +30,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $totalProduits = Produit::count();
+        $totalProduits = Stock::count();
         $totalFournisseurs = Fournisseur::count();
         
         $receptionsData = Reception::selectRaw("DATE_FORMAT(datereception, '%m/%Y') as month_year, count(*) as count")
@@ -43,7 +43,7 @@ class HomeController extends Controller
         $receptionsChart = session('receptionsChart');
         $receptionsChart = new UserChart;
         $receptionsChart->labels($labels);
-        $receptionsChart->dataset('Nombre de receptions', 'bar', $counts);
+        $receptionsChart->dataset('Nombre de receptions', 'bar', $counts)->backgroundColor('green');
         $receptionsChart->options([
             'title' => [
                 'display' => true,
@@ -80,10 +80,10 @@ class HomeController extends Controller
         $sortiesChart = session('sortiesChart');
         $sortiesChart = new UserChart;
         $sortiesChart->labels($labels);
-        $sortiesChart->dataset('Nombre de sorties', 'bar', $counts);
+        $sortiesChart->dataset('Nombre de sorties', 'bar', $counts)->backgroundColor('green');
         $sortiesChart->options([
             'title' => [
-                'display' => true,
+                'display' => false,
                 'text' => 'Nombre de sorties par mois'
             ],
             'scales' => [
@@ -107,8 +107,61 @@ class HomeController extends Controller
         ]);
         session(['sortiesChart' => $sortiesChart]);
 
+
+        $produitsChart = session('produitsChart');
+
+        $stockData = Stock::selectRaw("produits.nomproduit as name, (SUM(stock.quantiter) / (SELECT SUM(stock.quantiter) FROM stock)) * 100 as rate")
+        ->join('produits', 'stock.produit_id', '=', 'produits.idproduit')
+        ->groupBy('produits.nomproduit')
+        ->get();
+
+        $labels = $stockData->pluck('name');
+        $rates = $stockData->pluck('rate');
+
+        function generateRandomColors($count)
+        {
+            $colors = [];
+            for ($i = 0; $i < $count; $i++) {
+                $colors[] =  '#' . substr(md5(rand()), 0, 6);
+            }
+            return $colors;
+        }
+
+        $count = Stock::count();
+        $colors = generateRandomColors($count);
+        $produitsChart = new UserChart;
+        $produitsChart->labels($labels);
+        $produitsChart->dataset('N', 'pie', $rates)->backgroundColor($colors);
+        $produitsChart->options([
+            'title' => [
+                'display' => false,
+                'text' => 'Pourcentage des produits dans le stock'
+            ],
+            'scales' => [
+                'xAxes' => [
+                    [
+                       
+                            'display' => false,
+                           
+                        
+                    ]
+                ],
+                'yAxes' => [
+                    [
+                       
+                            'display' => false,
+                            
+                        
+                    ]
+                ]
+            ]
+        ]);
+        session(['produitsChart' => $produitsChart]);
+
         
-        return view('home',compact('receptionsChart','sortiesChart'));
+
+        
+        return view('home',compact('receptionsChart','sortiesChart','totalProduits','totalFournisseurs','produitsChart'));
     }
 }
 

@@ -108,9 +108,20 @@
             @endphp
             {!! $sortiesChart->container() !!}
             @if($sortiesChart)
-    {!! $sortiestChart->script() !!}
+    {!! $sortiesChart->script() !!}
     @endif
         @endif
+
+        {{-- ChartScript --}}
+    @if(session()->has('produitsChart'))
+            @php
+                $sortiesChart = session('produitsChart');
+            @endphp
+            {!! $produitsChart->container() !!}
+            @if($produitsChart)
+    {!! $produitsChart->script() !!}
+    @endif
+        @endif        
    
 </html>
 
