@@ -59,17 +59,14 @@ class StockController extends Controller
     public function update($idstock,Request $request){
 
         $validator = Validator::make($request->all(),[
-            'codstock' =>'required',
-            'nomstock' =>'required',
-            'tel_fixe_stock' =>'required',
-            'adrstock' =>'required',
+            'quantiter' =>'required',
         ]);
 
         if($validator->passes()){
-            $stock =new stock();
+            $stock =Stock::find($idstock);
             $stock ->fill($request->post())->save();
 
-            return redirect()->route('stock.index')->with('success','stock updated successfully.');
+            return redirect()->route('stock.index')->with('success','Quantité modifiée avec succes.');
         } else {
             // return with errrors
             return redirect()->route('stock.edit',$idstock)->withErrors($validator)->withInput();
