@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SIMPLE LARAVEL 9 CRUD </title>
+    <title>Stock</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 </head>
 <body>
 
-    <div class="bg-dark py-3">
+<div class="bg-primary py-4" style="text-align : center;">
         <div class="container">
-            <div class="h4 text-white">SIMPLE LARAVEL </div>
+            <div class="h1 text-white fw-bold">Stock</div>
         </div>
     </div>
 
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">Stock</div>
+            <div class="h4"></div>
         </div>
 
         @if(Session::has('success'))
@@ -32,8 +32,8 @@
                     <tr>
                         
                         <th >Code Produit</th>
-                        <th>Nom Produit</th>
-                        <th>Quantite</th>
+                        <th>Nom du produit</th>
+                        <th>Quantité</th>
                         
                     </tr>
 
@@ -47,17 +47,17 @@
                        
                         <td>
                             
-                            <form id="stock-edit-action-{{ $stock->idstock }}" action="{{ route('stock.destroy',$stock->idstock) }}" method="post">
+                            <!-- <form id="stock-edit-action-{{ $stock->idstock }}" action="{{ route('stock.destroy',$stock->idstock) }}" method="post">
                             @csrf
                                 @method('delete')
-                            </form>
+                            </form> -->
                         </td>
                     </tr>
                     @endforeach
                     
                     @else
                     <tr>
-                        <td colspan="6">Record Not Found</td>
+                        <td colspan="6">Rien à afficher</td>
                     </tr>
                     @endif
 
@@ -73,9 +73,5 @@
 </body>
 </html>
 <script>
-    function deletestock(idstock) {
-        if (confirm("Are you sure you want to delete?")) {
-            document.getElementById('stock-edit-action-'+idstock).submit();
-        }
-    }
+  
 </script>

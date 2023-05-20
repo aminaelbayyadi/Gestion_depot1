@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Produit;
+use App\Models\Stock;
 use Illuminate\Support\Facades\File;
 use Illuminate\Pagination\Paginator;
 class ProduitControler extends Controller
@@ -27,7 +28,13 @@ class ProduitControler extends Controller
             $produit->codeproduit = $request->codeproduit;
             $produit->nomproduit = $request->nomproduit;
             $produit->save();
-            return redirect()->route('produits.index')->with('success','produit added successfully.');
+
+            $lastid = Produit::latest()->first()-> idproduit;
+            $stock=new stock();
+            $stock->quantiter = 0;
+            $stock->produit_id = $lastid;
+            $stock->save();
+            return redirect()->route('produits.index')->with('success','Produit ajouté avec succès.');
         } else {
             // return with errrors
             return redirect()->route('produits.create')->withErrors($validator)->withInput();
@@ -47,15 +54,25 @@ class ProduitControler extends Controller
             $produit= Produit::find($idproduit);
             $produit ->fill($request->post())->save();
     
-            return redirect()->route('produits.index')->with('success','produit updated successfully.');
+            return redirect()->route('produits.index')->with('success','Produit modifié avec succès.');
         } else {
             // return with errrors
-            return redirect()->route('produits.edit',$idproduit)->withErrors($validator)->withInput();
+            return redirect()->route('produits.edit',$idproduit)->with('error','Action échouée.');
         }
 }
-public function destroy($idproduit, Request $request){
-   $produit= produit::findOrFail($idproduit);
-   $produit->delete();
-   return redirect()->route('produits.index')->with('success','produit deleted successfully.');;
+public function destroy($idproduit, Request $request)
+{
+    $produit = Produit::findOrFail($idproduit);
+    
+    $stock = Stock::where('produit_id', $idproduit)->first();
+    
+    if ($stock && $stock->quantiter == 0) {
+        $produit->delete();
+        $stock->delete();
+       
+        return redirect()->route('produits.index')->with('success', 'Produit supprimé avec succès.');
+    } else {
+        return redirect()->route('produits.index')->with('error', 'Produit encore dans le stock.');
+    }
 }
 }

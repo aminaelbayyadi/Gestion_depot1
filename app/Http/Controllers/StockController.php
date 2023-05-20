@@ -14,7 +14,7 @@ class StockController extends Controller
 {
     public function index(){
        // $stock = Stock::with('produit')->orderBy('idstock','DESC')->paginate(50);
-       $stock = DB::table('stock')
+       $stock = DB::table('stock')->where('quantiter','>', 0)
             ->join('produits', 'stock.produit_id', '=', 'produits.idproduit')
             ->orderBy('stock.idstock', 'desc')
             ->paginate(50);

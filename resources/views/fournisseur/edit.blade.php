@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit</title>
+    <title>Modifier un fournisseur</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 </head>
 <body>
 
-    <div class="bg-dark py-3">
+<div class="bg-info py-3">
         <div class="container">
-            <div class="h4 text-white">Edit Fournisseur</div>
+            <div class="h4 text-white">Modifier un fournisseur</div>
         </div>
     </div>
-
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">fournisseurs</div>
+            <div class="h4">Veuillez modifier les informations souhaitées :</div>
             <div>
-                <a href="{{ route('fournisseurs.index') }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('fournisseurs.index') }}" class="btn btn-secondary">Retour</a>
             </div>
         </div>
 
@@ -29,7 +28,7 @@
             <div class="card border-0 shadow-lg">
                 <div class="card-body">
                     <div class="mb-3">
-                        <label for="codefour" class="form-label">code</label>
+                        <label for="codefour" class="form-label">Code</label>
                         <input type="text" name="codefour" id="codefour" placeholder="Enter code" class="form-control @error('codefour') is-invalid @enderror" value="{{ old('codefour',$fournisseur->codefour) }}">
                         @error('codefour')
                             <p class="invalid-feedback">{{ $message }}</p>    
@@ -37,7 +36,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="nomfour" class="form-label">nom de fournisseur</label>
+                        <label for="nomfour" class="form-label">Nom du fournisseur</label>
                         <input type="text" name="nomfour" id="nomfour" placeholder="Enter nom de fournisseur" class="form-control @error('nomfour') is-invalid @enderror" value="{{ old('nomfour',$fournisseur->nomfour) }}">
                         @error('nomfour')
                             <p class="invalid-feedback">{{ $message }}</p>    
@@ -45,7 +44,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="telfour" class="form-label">télephone de fournisseur</label>
+                        <label for="telfour" class="form-label">Télephone</label>
                         <input type="text" name="telfour" id="telfour" placeholder="Enter Téléphone" class="form-control @error('telfour') is-invalid @enderror" value="{{ old('telfour',$fournisseur->telfour) }}">
                         @error('telfour')
                             <p class="invalid-feedback">{{ $message }}</p>    
@@ -61,7 +60,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="adrfour" class="form-label">Address</label>
+                        <label for="adrfour" class="form-label">Adresse</label>
                         <textarea name="adrfour" id="adrfour" cols="30" rows="4" placeholder="Enter Address" class="form-control">{{ old('adrfour',$fournisseur->adrfour) }}</textarea>
                     </div>
 
@@ -84,7 +83,7 @@
                 </div>
             </div>
 
-            <button class="btn btn-primary my-3">Update fournisseur</button>
+            <button class="btn btn-primary my-3">Modifier le fournisseur</button>
 
         </form>
     </div>

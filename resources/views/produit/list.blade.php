@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SIMPLE LARAVEL 9 CRUD </title>
+    <title>Produits </title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -15,16 +15,16 @@
 
 
 
-    <div class="bg-dark py-3">
+    <div class="bg-primary py-2" style="text-align : center;">
         <div class="container">
-            <div class="h4 text-white">SIMPLE LARAVEL </div>
+            <div class="h1 text-white fw-bold">Produits</div>
         </div>
     </div>
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">produits</div>
+            <div class="h4"></div>
             <div>
-                <a href="{{ route('produits.create') }}" class="btn btn-primary">Create</a>
+                <a href="{{ route('produits.create') }}" class="btn btn-primary">Ajouter un produit</a>
             </div>
         </div>
 
@@ -33,14 +33,19 @@
             {{ Session::get('success') }}
         </div>
         @endif
+        @if(Session::has('error'))
+        <div class="alert alert-warning">
+            {{ Session::get('error') }}
+        </div>
+        @endif
 
         <div class="card border-0 shadow-lg">
             <div class="card-body">
                 <table class="table table-striped">
                     <tr>
                        
-                        <th >codeproduit</th>
-                        <th>nomproduit</th>
+                        <th >Code</th>
+                        <th>Nom du produit</th>
                         <th width="150">Action</th>
                     </tr>
                     @if($produits->isNotEmpty())
@@ -61,7 +66,7 @@
                     @endforeach
                     @else
                     <tr>
-                        <td colspan="6">Record Not Found</td>
+                        <td colspan="6">Rien à afficher</td>
                     </tr>
                     @endif
                 </table>
@@ -75,7 +80,7 @@
 </html>
 <script>
     function deleteproduit(id) {
-        if (confirm("Are you sure you want to delete?")) {
+        if (confirm("Êtes vous sûres vous voulez supprimer ce produit ?")) {
             document.getElementById('produit-edit-action-'+id).submit();
         }
     }

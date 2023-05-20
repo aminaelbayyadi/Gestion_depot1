@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SIMPLE LARAVEL 9 CRUD IN HINDI</title>
+    <title>Fournisseurs</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -12,17 +12,17 @@
 </head>
 <body>
 
-    <div class="bg-dark py-3">
+<div class="bg-primary py-2" style="text-align : center;">
         <div class="container">
-            <div class="h4 text-white">SIMPLE LARAVEL </div>
+            <div class="h1 text-white fw-bold">Fournisseurs</div>
         </div>
     </div>
 
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">fournisseurs</div>
+            <div class="h4"></div>
             <div>
-                <a href="{{ route('fournisseurs.create') }}" class="btn btn-primary">Create</a>
+                <a href="{{ route('fournisseurs.create') }}" class="btn btn-primary">Ajouter un fournisseur</a>
             </div>
         </div>
 
@@ -37,12 +37,12 @@
                 <table class="table table-striped">
                     <tr>
                        
-                        <th>Image</th>
-                        <th >code</th>
-                        <th>nomfournisseur</th>
+                        <th></th>
+                        <th >Code</th>
+                        <th>Nom</th>
                         <th>Télephone</th>
-                        <th>EmailF</th>
-                        <th >Address</th>
+                        <th>Email</th>
+                        <th >Adresse</th>
                         <th width="150">Action</th>
                     </tr>
 
@@ -75,7 +75,7 @@
                     
                     @else
                     <tr>
-                        <td colspan="6">Record Not Found</td>
+                        <td colspan="6">Rien à afficher</td>
                     </tr>
                     @endif
 
@@ -94,7 +94,7 @@
 </html>
 <script>
     function deleteFournisseur(id) {
-        if (confirm("Are you sure you want to delete?")) {
+        if (confirm("Êtes vous sûres vous voulez supprimer ce fournisseur ?")) {
             document.getElementById('fournisseur-edit-action-'+id).submit();
         }
     }

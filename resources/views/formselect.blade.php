@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Form Select</title>
+<title>Enregistrer une réception</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -91,11 +91,16 @@
 
 </head>
 <body>
-
-    <div class="signup-form">
+<div class="bg-info py-3">
+        <div class="container">
+            <div class="h4 text-white">Enregistrer une réception</div>
+        </div>
+    </div>
+    
+    <div class="signup-form" style="width: 70%; text-align : center;">
         <form action="{{ route('form.save') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <h2>Form Select Basic</h2>
+           
             <hr>
 
             @if(Session::has('error'))
@@ -104,16 +109,16 @@
                 </div>
             @endif
             <div class="input-group">
-                    <label for="name" class="col-sm-2 col-form-label">Numero de la reception *</label>
-                    <input id="numreception" type="text"  class="form-control @error('numreception') is-invalid @enderror" name="numreception" value="{{ old('numreception') }}" >
+                    <label for="name" class="col-sm-2 col-form-label">Numero de la réception *</label>
+                    <input id="numreception" type="text"  class="form-control @error('numreception') is-invalid @enderror" name="numreception" placeholder="Entrer le numéro de la réception" value="{{ old('numreception') }}" >
                     
                 </div>
 
             <div class="form-group" id="fournisseur">
                 <div class="input-group">
-                    <label for="name" class="col-sm-2 col-form-label">fournisseur *</label>
+                    <label for="name" class="col-sm-2 col-form-label">Le fournisseur *</label>
                     <select class="form-control" name="fournisseur" id="fournisseur" required>
-                        <option selected disabled>--- Select fournisseur ---</option>
+                        <option selected disabled>--- sélectionner un fournisseur ---</option>
                         @foreach ($fournisseur as $fournisseurs )
                         <option value="{{ $fournisseurs->nomfour }}" required>{{ $fournisseurs->nomfour }}</option>
                         @endforeach
@@ -123,22 +128,22 @@
              
             <div class="form-group" id="reception">
                 <div class="input-group">
-                    <label for="name" class="col-sm-2 col-form-label">Date de reception *</label>
+                    <label for="name" class="col-sm-2 col-form-label">Date de la réception *</label>
                     <input id="reception" type="date" class="form-control @error('reception') is-invalid @enderror" name="reception" value="{{ old('reception') }}" required>
                     
                 </div>
             </div>
             
         
-    <div class="form-group">
+    <div class="form-group" >
         <h4>Liste des produits</h4>
-        <p> choisir les produits recus </p>
+        <p> Veuillez choisir les produits reçus : </p>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th></th>
-                    <th>Product</th>
-                    <th>Quantity</th>
+                    <th>Produit</th>
+                    <th>Quantité reçue</th> 
                 </tr>
             </thead>
             <tbody>
@@ -153,7 +158,7 @@
                             </div>
                         </td>
                         <td>{{ $produit->nomproduit }}</td>
-                        <td>  </td>
+                        <!-- <td> {{ $produit->quantiter }} </td> -->
                         <td>
                             <div class="form-group">
                                 <input type="number" class="form-control" name="quantities[{{ $produit->idproduit }}]" min="0" value="0" >
@@ -163,7 +168,7 @@
                     @endforeach
                     @else
                     <tr>
-                        <td colspan="6">Record Not Found</td>
+                        <td colspan="6">Rien à afficher</td>
                     </tr>
                     @endif
                 
@@ -173,26 +178,14 @@
 
 
 
-            <div class="form-group">
+            <div class="form-group" style="align-items : center;">
                 <div class="form-group">
                     <label for="name" class="col-sm-2 col-form-label"></label>
-                    <button type="submit" class="btn btn-primary btn-lg">Save</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Enregistrer</button>
                 </div>
             </div>
         </form>
     </div>
 
-
-
-   
-    
-
-
-
-
-
-
-    
-  
 </body>
 </html>

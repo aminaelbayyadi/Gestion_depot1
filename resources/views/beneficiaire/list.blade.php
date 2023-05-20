@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>beneficiaire</title>
+    <title>Bénéficiaire</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -12,17 +12,18 @@
 </head>
 <body>
 
-    <div class="bg-dark py-3">
+<div class="bg-primary py-2" style="text-align : center;">
         <div class="container">
-            <div class="h4 text-white">beneficiaire </div>
+            <div class="h1 text-white fw-bold">Bénéficiaire</div>
         </div>
     </div>
 
+
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">beneficiaires</div>
+            <div class="h4"></div>
             <div>
-                <a href="{{ route('beneficiaires.create') }}" class="btn btn-primary">Create</a>
+                <a href="{{ route('beneficiaires.create') }}" class="btn btn-primary">Ajouter un bénéficiaire</a>
             </div>
         </div>
 
@@ -71,7 +72,7 @@
                     
                     @else
                     <tr>
-                        <td colspan="6">Record Not Found</td>
+                        <td colspan="6">Rien à afficher</td>
                     </tr>
                     @endif
 
@@ -86,7 +87,7 @@
 </html>
 <script>
     function deletebeneficiaire(idbeneficiaire) {
-        if (confirm("Are you sure you want to delete?")) {
+        if (confirm("Êtes vous sûres vous voulez supprimer ce bénéficiaire ?")) {
             document.getElementById('beneficiaire-edit-action-'+idbeneficiaire).submit();
         }
     }

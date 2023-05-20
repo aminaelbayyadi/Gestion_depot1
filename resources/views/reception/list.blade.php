@@ -12,17 +12,16 @@
 </head>
 <body>
 
-    <div class="bg-dark py-3">
+<div class="bg-primary py-2" style="text-align : center;">
         <div class="container">
-            <div class="h4 text-white">Reception </div>
+            <div class="h1 text-white fw-bold">Réceptions</div>
         </div>
     </div>
-
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">Receptions</div>
+            <div class="h4"></div>
             <div>
-                <a href="{{ route('form/select') }}" class="btn btn-primary">Ajouter une reception</a>
+                <a href="{{ route('form/select') }}" class="btn btn-primary">Ajouter une réception</a>
             </div>
         </div>
 
@@ -36,8 +35,8 @@
             <div class="card-body">
                 <table class="table table-striped">
                     <tr>
-                        <th >Numero de reception</th>
-                        <th>Date de reception</th>
+                        <th >Numero de réception</th>
+                        <th>Date de la réception</th>
                         <th>Nombre des articles</th>
                         <th >Nom du fournisseur</th>
                        
@@ -62,7 +61,7 @@
                                 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
                                 </svg></a>
                             <a href="#" onclick="deletereception({{ $reception->idreception }})" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" ></span></a>
-                            <form id="reception-edit-action-{{ $reception->idreception }}" action="{{ route('form/select',$reception->idreception) }}" method="post">
+                            <form id="reception-edit-action-{{ $reception->idreception }}" action="{{ route('receptions.destroy',$reception->idreception) }}" method="post">
                             @csrf
                                 @method('delete')
                             </form>
@@ -87,7 +86,7 @@
 </html>
 <script>
     function deletereception(idreception) {
-        if (confirm("Vous vouler supprimer cette reception ?")) {
+        if (confirm("Êtes vous sûres vous vouler supprimer cette reception ?")) {
             document.getElementById('reception-edit-action-'+idreception).submit();
         }
     }

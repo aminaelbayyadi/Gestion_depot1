@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Form Select</title>
+<title>Enregistrer une sortie</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -90,39 +90,53 @@
 
 </head>
 <body>
-
-    <div class="signup-form">
+   
+<div class="bg-info py-3">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-auto">
+              <a href="{{route(home)}}">  <img src="{{asset('assets/images/logo1.png')}}" alt="Logo" width="50" height="50"> </a>
+            </div>
+            <div class="col">
+                <div class="h4 text-white">Enregistrer une sortie</div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <div class="signup-form" style="width: 70%; text-align : center;">
         <form action="{{ route('sortie.save') }}" method="post" enctype="multipart/form-data">
             @csrf
-            <h2>Form Select Basic</h2>
+          
             @if(Session::has('error'))
                 <div class="alert alert-danger">
                     {{ Session::get('error') }}
                 </div>
             @endif
             <hr>
+            <div class="form-group" id="sortie">
+                <div class="input-group">
+                    <label for="name" class="col-sm-2 col-form-label">Numero de la sortie *</label>
+                    <input id="numsortie" type="text"  class="form-control @error('sortie') is-invalid @enderror"  placeholder="Entrer le numéro de la sortie" name="numsortie" value="{{ old('numsortie') }}" >
+                    
+                </div>
+            </div>
             <div class="form-group" id="beneficiaire">
                 <div class="input-group">
-                    <label for="name" class="col-sm-2 col-form-label">beneficiaire *</label>
+                    <label for="name" class="col-sm-2 col-form-label">Le bénéficiaire *</label>
                     <select class="form-control" name="beneficiaire" id="beneficiaire">
-                        <option selected disabled>--- Select beneficiaire ---</option>
+                        <option selected disabled>--- sélectionner un bénéficiaire ---</option>
                         @foreach ($beneficiaire as $beneficiaires )
-                        <option value="{{ $beneficiaires->idbeneficiaire }}">{{ $beneficiaires->nombeneficiaire }} - {{ $beneficiaires->nometablissement }}</option>
+                        <option value="{{ $beneficiaires->nombeneficiaire }}">{{ $beneficiaires->nombeneficiaire }} - {{ $beneficiaires->nometablissement }}</option>
                         @endforeach
                     </select>
                 </div>
             </div>
              
+            
             <div class="form-group" id="sortie">
                 <div class="input-group">
-                    <label for="name" class="col-sm-2 col-form-label">Numero de sortie *</label>
-                    <input id="numsortie" type="text"  class="form-control @error('sortie') is-invalid @enderror" name="numsortie" value="{{ old('numsortie') }}" >
-                    
-                </div>
-            </div>
-            <div class="form-group" id="sortie">
-                <div class="input-group">
-                    <label for="name" class="col-sm-2 col-form-label">Date de sortie *</label>
+                    <label for="name" class="col-sm-2 col-form-label">Date de la sortie *</label>
                     <input id="sortie" type="date"  class="form-control @error('sortie') is-invalid @enderror" name="sortie" value="{{ old('sortie') }}" >
                     
                 </div>
@@ -131,14 +145,14 @@
         
     <div class="form-group">
         <h4>Liste des produits</h4>
-        <p> choisir les produits donnes </p>
+        <p> Veuillez choisir les produits sortis : </p>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th></th>
-                    <th>Produits</th>
-                    <th>Quantite disponible </th>
-                    <th>Quantite a livrer</th>
+                    <th>Produit</th>
+                    <th>Quantité disponible </th>
+                    <th>Quantite à livrer</th>
                 </tr>
             </thead>
             <tbody>
@@ -176,7 +190,7 @@
             <div class="form-group">
                 <div class="form-group">
                     <label for="name" class="col-sm-2 col-form-label"></label>
-                    <button type="submit" class="btn btn-primary btn-lg">Save</button>
+                    <button type="submit" class="btn btn-primary btn-lg">Enregistrer</button>
                 </div>
             </div>
         </form>

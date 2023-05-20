@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SIMPLE LARAVEL 9 </title>
+    <title>Ajouter un produit </title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 </head>
 <body>
-    <div class="bg-dark py-3">
+    <div class="bg-info py-3">
         <div class="container">
-            <div class="h4 text-white">SIMPLE LARAVEL  </div>
+            <div class="h4 text-white">Ajouter un nouveau produit</div>
         </div>
     </div>
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">produits</div>
+            <div class="h4">Veuillez saisir les informations du produit : </div>
             <div>
-                <a href="{{ route('produits.index') }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('produits.index') }}" class="btn btn-secondary">Annuler</a>
             </div>
         </div>
         <form action="{{ route('produits.store') }}" method="post" enctype="multipart/form-data">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary mt-3">Save produit</button>
+            <button class="btn btn-primary mt-3">Ajouter</button>
         </form>
     </div>
 </body>

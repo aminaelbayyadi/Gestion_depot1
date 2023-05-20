@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sortie</title>
+    <title>Sorties</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -12,17 +12,17 @@
 </head>
 <body>
 
-    <div class="bg-dark py-3">
+<div class="bg-primary py-2" style="text-align : center;">
         <div class="container">
-            <div class="h4 text-white">Sortie </div>
+            <div class="h1 text-white fw-bold">Sorties</div>
         </div>
     </div>
 
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">Sorties</div>
+            <div class="h4"></div>
             <div>
-                <a href="{{ route('sortie.select') }}" class="btn btn-primary">Create</a>
+                <a href="{{ route('sortie.select') }}" class="btn btn-primary">Ajouter une sortie</a>
             </div>
         </div>
 
@@ -36,10 +36,10 @@
             <div class="card-body">
                 <table class="table table-striped">
                     <tr>
-                        <th >Numero du sortie</th>
-                        <th>Date Sortie</th>
+                        <th >Numero de sortie</th>
+                        <th>Date de la sortie</th>
                         <th>Nombre des articles</th>
-                        <th >Nom beneficiaire</th>
+                        <th >Nom du beneficiaire</th>
                        
 
                         <th width="150">Action</th>
@@ -60,7 +60,7 @@
                                 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
                                 </svg></a>
                             <a href="#" onclick="deleteSortie({{ $Sortie->idsortie }})" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash" ></span></a>
-                            <form id="Sortie-edit-action-{{ $Sortie->idsortie }}" action="{{ route('sortie.select',$Sortie->idsortie) }}" method="post">
+                            <form id="Sortie-edit-action-{{ $Sortie->idsortie }}" action="{{ route('sortie.destroy',$Sortie->idsortie) }}" method="post">
                             @csrf
                                 @method('delete')
                             </form>
@@ -70,7 +70,7 @@
                     
                     @else
                     <tr>
-                        <td colspan="6">Record Not Found</td>
+                        <td colspan="6">Rien à afficher</td>
                     </tr>
                     @endif
 
@@ -85,7 +85,7 @@
 </html>
 <script>
     function deleteSortie(idsortie) {
-        if (confirm("Are you sure you want to delete?")) {
+        if (confirm("Êtes vous sûres vous vouler supprimer cette sortie ?")) {
             document.getElementById('Sortie-edit-action-'+idsortie).submit();
         }
     }

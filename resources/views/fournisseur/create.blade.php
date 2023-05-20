@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SIMPLE LARAVEL 9 CRUD </title>
+    <title>Ajouter un nouveau fournisseur</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 </head>
 <body>
 
-    <div class="bg-dark py-3">
+<div class="bg-info py-3">
         <div class="container">
-            <div class="h4 text-white">SIMPLE LARAVEL 9 CRUD </div>
+            <div class="h4 text-white">Ajouter un nouveau fournisseur</div>
         </div>
     </div>
 
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">fournisseurs</div>
+            <div class="h4">Veuillez saisir les informations du fournisseur : </div>
             <div>
-                <a href="{{ route('fournisseurs.index') }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('fournisseurs.index') }}" class="btn btn-secondary">Retour</a>
             </div>
         </div>
 
@@ -28,24 +28,24 @@
             <div class="card border-0 shadow-lg">
                 <div class="card-body">
                     <div class="mb-3">
-                        <label for="codefour" class="form-label">code</label>
-                        <input type="text" name="codefour" id="codefour" placeholder="Enter code" class="form-control @error('codefour') is-invalid @enderror" value="{{ old('codefour') }}">
+                        <label for="codefour" class="form-label">Code</label>
+                        <input type="text" name="codefour" id="codefour" placeholder="Enter le code" class="form-control @error('codefour') is-invalid @enderror" value="{{ old('codefour') }}">
                         @error('codefour')
                             <p class="invalid-feedback">{{ $message }}</p>    
                         @enderror                        
                     </div>
 
                     <div class="mb-3">
-                        <label for="nomfour" class="form-label">nom de fournisseur</label>
-                        <input type="text" name="nomfour" id="nomfour" placeholder="Enter nom de fournisseur" class="form-control @error('nomfour') is-invalid @enderror" value="{{ old('nomfour') }}">
+                        <label for="nomfour" class="form-label">Nom du fournisseur</label>
+                        <input type="text" name="nomfour" id="nomfour" placeholder="Enter le nom du fournisseur" class="form-control @error('nomfour') is-invalid @enderror" value="{{ old('nomfour') }}">
                         @error('nomfour')
                             <p class="invalid-feedback">{{ $message }}</p>    
                         @enderror                        
                     </div>
 
                     <div class="mb-3">
-                        <label for="telfour" class="form-label">télephone de fournisseur</label>
-                        <input type="text" name="telfour" id="telfour" placeholder="Enter Téléphone" class="form-control @error('telfour') is-invalid @enderror" value="{{ old('telfour') }}">
+                        <label for="telfour" class="form-label">Télephone de fournisseur</label>
+                        <input type="text" name="telfour" id="telfour" placeholder="Enter le numéro de téléphone" class="form-control @error('telfour') is-invalid @enderror" value="{{ old('telfour') }}">
                         @error('telfour')
                             <p class="invalid-feedback">{{ $message }}</p>    
                         @enderror                        
@@ -53,19 +53,19 @@
 
                     <div class="mb-3">
                         <label for="emailfour" class="form-label">Email</label>
-                        <input type="text" name="emailfour" id="emailfour" placeholder="Enter Email" class="form-control @error('emailfour') is-invalid @enderror" value="{{ old('emailfour') }}">
+                        <input type="text" name="emailfour" id="emailfour" placeholder="Enter l'adresse email" class="form-control @error('emailfour') is-invalid @enderror" value="{{ old('emailfour') }}">
                         @error('emailfour')
                             <p class="invalid-feedback">{{ $message }}</p>    
                         @enderror      
                     </div>
 
                     <div class="mb-3">
-                        <label for="adrfour" class="form-label">Address</label>
-                        <textarea name="adrfour" id="adrfour" cols="30" rows="4" placeholder="Enter Address" class="form-control">{{ old('adrfour') }}</textarea>
+                        <label for="adrfour" class="form-label">Adresse</label>
+                        <textarea name="adrfour" id="adrfour" cols="30" rows="4" placeholder="Enter l'adresse" class="form-control">{{ old('adrfour') }}</textarea>
                     </div>
 
                     <div class="mb-3">
-                        <label for="imagefour" class="form-label"></label>
+                        <label for="imagefour" class="form-label">Ajouter une image du fournisseur :</label>
                         <input type="file" name="imagefour" id="imagefour" class="@error('imagefour') is-invalid @enderror">
 
                        @error('imagefour')

@@ -58,6 +58,8 @@ Route::delete('/etablissements/{etablissement}',[EtablissementControler::class,'
 Auth::routes();
 
 Route::get('/receptions',[ReceptionControler::class,'index'])->name('receptions.index');
+Route::delete('/receptions/{reception}',[ReceptionControler::class,'destroy'])->name('receptions.destroy');
+
 //Route::get('/receptions/{reception}',[ReceptionControler::class,'index'])->name('receptions.index');
 
 
@@ -92,6 +94,7 @@ Route::delete('/beneficiaires/{beneficiaire}',[BeneficiaireControler::class,'des
 Route::get('/sorties',[App\Http\Controllers\SortieController::class,'index'])->name('sortie.index');
 Route::get('/sortieform', [App\Http\Controllers\SortieController::class, 'select'])->name('sortie.select');
 Route::post('/sortieform',[App\Http\Controllers\SortieController::class,'save'])->name('sortie.save');
+Route::delete('/sortieform/{sortie}',[App\Http\Controllers\SortieController::class,'destroy'])->name('sortie.destroy');
 
 Route::get('/detailreception',[App\Http\Controllers\DetailreceptionControler::class,'index'])->name('detailreception.index');
 Route::get('/detailsortie',[App\Http\Controllers\DetailsortieControler::class,'index'])->name('detailsortie.index');

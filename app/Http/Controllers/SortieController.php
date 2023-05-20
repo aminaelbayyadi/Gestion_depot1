@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Sortie;
 use App\Models\Beneficiaire;
+use App\Models\Detaitsortie;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use DB;
@@ -12,7 +13,7 @@ class SortieController extends Controller
     public function index()
     {
         $beneficiaire = DB::table('beneficiaires')->get();
-        $Sorties = Sortie::join('beneficiaires', 'sorties.beneficiaire_id', '=', 'beneficiaires.idbeneficiaire')->orderBy('idbeneficiaire','DESC')
+        $Sorties = Sortie::orderBy('idsortie','DESC')
         ->paginate(50);
         
         
@@ -25,7 +26,7 @@ class SortieController extends Controller
     public function select(){
         $produits = DB::table('produits')
         ->join('stock', 'produits.idproduit', '=', 'stock.produit_id')
-        ->select('produits.*', 'stock.quantiter')
+        ->select('produits.*', 'stock.quantiter')->where('stock.quantiter','>',0)
         ->get();
         
         $beneficiaire = Beneficiaire::join('etablissements', 'beneficiaires.etablissement_id', '=', 'etablissements.idetablissement')->orderBy('idbeneficiaire','DESC')->paginate(50);
@@ -64,8 +65,9 @@ class SortieController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->with('error','Veulliez remplir tous les informations !')->withInput();
+            return redirect()->back()->withErrors($validator)->with('error','Veulliez remplir toutes les informations !')->withInput();
                  }
+        else{
          $quantities = $request->input('quantities');
      
 
@@ -80,7 +82,7 @@ class SortieController extends Controller
         // return with errrors
        // return redirect()->route('stock.index')->withErrors($validator)->withInput();
        $Sortie=new Sortie();
-       $Sortie->beneficiaire_id  = $request->beneficiaire;
+       $Sortie->nombeneficiaire  = $request->beneficiaire;
        $Sortie->datesortie = $request->sortie;
        $Sortie->numsortie = $request->numsortie;
        $Sortie->nbr_article_sortie =$nbrArticles;
@@ -110,8 +112,9 @@ class SortieController extends Controller
    
 
 
-       return redirect()->route('sortie.index')->with('success', 'Sortie created successfully.');
+       return redirect()->route('sortie.index')->with('success', 'Sortie enregistré avec succes.');
     }
+}
 
 
 
@@ -126,7 +129,17 @@ class SortieController extends Controller
        
 
         public function edit(){}
-        public function delete(){}
+        public function destroy($idsortie, Request $request)
+        {
+            $Sortie = Sortie::findOrFail($idsortie);
+            
+            // Delete the related detailreception entries
+            Detaitsortie::where('sortie_id', $idsortie)->delete();
+            
+            $Sortie->delete();
+            
+            return redirect()->route('sortie.index')->with('success', 'Sortie supprimée avec succes.');
+        }
 
     }       
         

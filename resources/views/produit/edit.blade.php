@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edit</title>
+    <title>Modifier un produit</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 </head>
 <body>
 
-    <div class="bg-dark py-3">
+    <div class="bg-info py-3">
         <div class="container">
-            <div class="h4 text-white">Edit produit</div>
+            <div class="h4 text-white">Modifier un produit</div>
         </div>
     </div>
 
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
-            <div class="h4">produits</div>
+            <div class="h4">Veuillez modifier les informations souhaitées : </div>
             <div>
-                <a href="{{ route('produits.index') }}" class="btn btn-primary">Back</a>
+                <a href="{{ route('produits.index') }}" class="btn btn-secondary">Retour</a>
             </div>
         </div>
 
@@ -45,7 +45,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary my-3">Update produit</button>
+            <button class="btn btn-primary my-3">Modifier</button>
         </form>
     </div>
 </body>

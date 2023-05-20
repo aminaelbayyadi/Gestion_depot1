@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Reception;
 use App\Models\Fournisseur;
+use App\Models\Detaitreception;
 use DB;
 
 use Illuminate\Support\Facades\File;
@@ -46,5 +47,16 @@ class receptionControler extends Controller
             return redirect()->route('receptions.create')->withErrors($validator)->withInput();
         }
     }
+
+    public function destroy($idreception, Request $request)
+{
+    $reception = Reception::findOrFail($idreception);
     
+    // Delete the related detailreception entries
+    Detaitreception::where('reception_id', $idreception)->delete();
+    
+    $reception->delete();
+    
+    return redirect()->route('receptions.index')->with('success', 'Reception supprimée avec succes.');
 }
+}  

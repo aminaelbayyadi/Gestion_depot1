@@ -71,12 +71,12 @@ class FormControler extends Controller
    
 
 
-       return redirect()->route('receptions.index')->with('success', 'Reception ajoutee.');
+       return redirect()->route('receptions.index')->with('success', 'Réception ajoutée.');
 }
 else{
     
 
-    return redirect()->route('form/select')->with('error', 'Veulliez remplir tous les informations !')->withInput();
+    return redirect()->route('form/select')->with('error', 'Veulliez remplir toutes les informations !')->withInput();
 }
 
 

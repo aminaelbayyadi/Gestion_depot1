@@ -9,7 +9,7 @@ class Sortie extends Model
 {
     use HasFactory;
     protected $primaryKey='idsortie';
-    protected $fillable =['numsortie','datesortie','nbr_article_sortie','beneficiaire_id'];
+    protected $fillable =['numsortie','datesortie','nbr_article_sortie','nombeneficiaire'];
 
     public function Beneficiaires()
     {
