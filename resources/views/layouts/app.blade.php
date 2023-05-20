@@ -90,7 +90,6 @@
 
     
     </body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
     {{-- ChartScript --}}
     @if(session()->has('receptionsChart'))
             @php
@@ -115,7 +114,7 @@
         {{-- ChartScript --}}
     @if(session()->has('produitsChart'))
             @php
-                $sortiesChart = session('produitsChart');
+                $produitsChart = session('produitsChart');
             @endphp
             {!! $produitsChart->container() !!}
             @if($produitsChart)

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Bienvenue !</title>
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" 
 integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
@@ -22,7 +22,7 @@ integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChi
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="{{ route('login') }}">Login</a></li>
-                <li><a href="#">Service</a></li>
+                
             </ul>
             <img src="{{ asset('assets/images/logo.png') }}" alt="" style="width: 260px;">
         </nav>
@@ -37,12 +37,11 @@ integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChi
                     </div> 
                 </div>
             </div>
-            <div class="main-text">
-                <h1> Gestion  </h1>
-                <h1>  de stock </h1>
-
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.adipisicing elit.</p>
-                <a class="btn btn-secondary" href="{{ route('login') }}" style="margin: 5px;">Connexion</a>
+            <div class="main-text" >
+                <h1 style = "font-weight : bold;"> Gestion  </h1>
+                <h1 style = "font-weight : bold;"> de stock </h1>
+                <h4>Bienvenue dans l'espace de gestion de dépôt</h4>
+                <h4>de la délégation Régionale de l'Education de Guelmim</h4>
             </div>
         </div>
 
@@ -52,8 +51,9 @@ integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChi
                     <img src="{{ asset('assets/images/img4.png')}}" alt="">
                 </div>
                 <div class="inner-box">
-                    <h3>100% Organic</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                <h4>Gestion de Dépôt</h4>
+            <p>Une solution efficace pour la gestion</p>
+            <p>des stocks et des dépôts d'une administration.</p>
                 </div>
             </div>
             <div class="box">
@@ -61,8 +61,9 @@ integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChi
                     <img src="{{ asset('assets/images/img5.png')}}" alt="">
                 </div>
                 <div class="inner-box">
-                    <h3>Not Expensive</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                <h4>Traitement Rapide</h4>
+            <p>Des fonctionnalités optimisées pour assurer</p>
+            <p>un traitement rapide et efficace des opérations.</p>
                 </div>
             </div>
             <div class="box">
@@ -70,8 +71,9 @@ integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChi
                     <img src="{{ asset('assets/images/img6.png')}}" alt="">
                 </div>
                 <div class="inner-box">
-                    <h3>Super Healthy</h3>
-                    <p>Lorem ipsum dolor sit amet.</p>
+                <h4>Sécurité des Données</h4>
+            <p>Une gestion sécurisée des données pour assurer </p>
+            <p> la confidentialité et l'intégrité des informations.</p>
                 </div>
             </div>
         </div>
