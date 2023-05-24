@@ -8,12 +8,20 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 </head>
 <body>
-
-<div class="bg-info py-3">
-        <div class="container">
-            <div class="h4 text-white">Ajouter un nouveau bénéficiaire</div>
+<nav class="navbar navbar-expand-md navbar-light bg-info py-3 shadow-sm" style="height: 65px;">
+            <div class="container">
+            <div><a  href="{{ url('/home') }}"><img src="{{asset('assets/images/logo.png')}}" style="height: 50px;" ></a></div>
+               <!-- <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>-->
+                <div class="container">
+            <div class="h4 text-white" style="font-style: italic; padding-left: 150px;" >Ajouter un nouveau bénéficiaire</div>
         </div>
-    </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
 
     <div class="container ">
         <div class="d-flex justify-content-between py-3">
