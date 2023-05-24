@@ -90,19 +90,31 @@
 
 </head>
 <body>
-   
-<div class="bg-info py-3">
+<nav class="navbar navbar-expand-md navbar-light bg-info py-3 shadow-sm" style="height: 65px;">
+            <div class="container">
+            <div><a  href="{{ url('/home') }}"><img src="{{asset('assets/images/logo.png')}}" style="height: 50px;" ></a></div>
+               <!-- <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
+                </a>-->
+                <div class="container">
+            <div class="h4 text-white" style="font-style: italic; padding-left: 150px;" >Enregistrer une sortie</div>
+        </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+<!--<div class="bg-info py-3">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-auto">
-              <a >  <img src="{{asset('assets/images/logo1.png')}}" alt="Logo" width="50" height="50"> </a>
             </div>
             <div class="col">
                 <div class="h4 text-white">Enregistrer une sortie</div>
             </div>
         </div>
     </div>
-</div>
+</div>-->
     
     <div class="signup-form" style="width: 70%; text-align : center;">
         <form action="{{ route('sortie.save') }}" method="post" enctype="multipart/form-data">
