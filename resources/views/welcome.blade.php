@@ -20,7 +20,7 @@ integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChi
 
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                
                 <li><a href="{{ route('login') }}">Login</a></li>
                 
             </ul>

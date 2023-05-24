@@ -95,7 +95,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-auto">
-              <a href="{{route(home)}}">  <img src="{{asset('assets/images/logo1.png')}}" alt="Logo" width="50" height="50"> </a>
+              <a >  <img src="{{asset('assets/images/logo1.png')}}" alt="Logo" width="50" height="50"> </a>
             </div>
             <div class="col">
                 <div class="h4 text-white">Enregistrer une sortie</div>
@@ -127,7 +127,7 @@
                     <select class="form-control" name="beneficiaire" id="beneficiaire">
                         <option selected disabled>--- sélectionner un bénéficiaire ---</option>
                         @foreach ($beneficiaire as $beneficiaires )
-                        <option value="{{ $beneficiaires->nombeneficiaire }}">{{ $beneficiaires->nombeneficiaire }} - {{ $beneficiaires->nometablissement }}</option>
+                        <option value="{{ $beneficiaires->nombeneficiaire }}|{{ $beneficiaires->nometablissement }}">{{ $beneficiaires->nombeneficiaire }} - {{ $beneficiaires->nometablissement }}</option>
                         @endforeach
                     </select>
                 </div>

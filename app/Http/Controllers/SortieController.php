@@ -74,6 +74,10 @@ class SortieController extends Controller
         
       
          $produitsSelected = $request->input('produitsSelected');
+         $values = explode('|', $request->beneficiaire);
+    $nomb = $values[0];
+    $nome = $values[1];
+    $benefice=$nomb . ' - ' . $nome;
          $quantities = $request->input('quantities');
   
          // Calculate the sum of quantities
@@ -82,7 +86,7 @@ class SortieController extends Controller
         // return with errrors
        // return redirect()->route('stock.index')->withErrors($validator)->withInput();
        $Sortie=new Sortie();
-       $Sortie->nombeneficiaire  = $request->beneficiaire;
+       $Sortie->nombeneficiaire  =$benefice;
        $Sortie->datesortie = $request->sortie;
        $Sortie->numsortie = $request->numsortie;
        $Sortie->nbr_article_sortie =$nbrArticles;
