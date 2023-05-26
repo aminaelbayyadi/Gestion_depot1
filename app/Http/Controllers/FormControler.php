@@ -12,7 +12,7 @@ class FormControler extends Controller
     public function index()
     {
         $fournisseur = DB::table('fournisseurs')->get();
-        $produits = DB::table('produits')->join('stock', 'produits.idproduit', '=', 'stock.produit_id')->get();
+        $produits = DB::table('produits')->get();
         
         return view('formselect',compact('fournisseur','produits'));
        

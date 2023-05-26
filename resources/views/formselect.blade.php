@@ -167,7 +167,6 @@
                             </div>
                         </td>
                         <td>{{ $produit->nomproduit }}</td>
-                        <!-- <td> {{ $produit->quantiter }} </td> -->
                         <td>
                             <div class="form-group">
                                 <input type="number" class="form-control" name="quantities[{{ $produit->idproduit }}]" min="0" value="0" >

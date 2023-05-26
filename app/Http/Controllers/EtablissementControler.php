@@ -33,7 +33,7 @@ class EtablissementControler extends Controller
             $etablissement->adretablissement = $request->adretablissement;
             $etablissement->save();
 
-            return redirect()->route('etablissements.index')->with('success','etablissement added successfully.');
+            return redirect()->route('etablissements.index')->with('success','Établissement ajouté avec succès.');
 
 
         } else {
@@ -58,10 +58,10 @@ class EtablissementControler extends Controller
 
         if($validator->passes()){
 
-            $etablissement= Etablissement::find($ididetablissement);
+            $etablissement= Etablissement::find($idetablissement);
             $etablissement ->fill($request->post())->save();
 
-            return redirect()->route('etablissements.index')->with('success','etablissement updated successfully.');
+            return redirect()->route('etablissements.index')->with('success','Établissement mis à jour avec succès.');
         } else {
             // return with errrors
             return redirect()->route('etablissements.edit',$idetablissement)->withErrors($validator)->withInput();
@@ -72,6 +72,6 @@ class EtablissementControler extends Controller
 public function destroy($idetablissement, Request $request){
    $etablissement= etablissement::findOrFail($idetablissement);
    $etablissement->delete();
-   return redirect()->route('etablissements.index')->with('success','etablissement deleted successfully.');;
+   return redirect()->route('etablissements.index')->with('success','Établissement supprimé avec succès');;
 }
 }

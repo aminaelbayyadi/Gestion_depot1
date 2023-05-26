@@ -41,7 +41,7 @@ class BeneficiaireControler extends Controller
 
             $beneficiaire->save();
 
-            return redirect()->route('beneficiaires.index')->with('success','beneficiaire added successfully.');
+            return redirect()->route('beneficiaires.index')->with('success','Bénéficiaire ajouté avec succès..');
 
 
         } else {
@@ -73,7 +73,7 @@ class BeneficiaireControler extends Controller
             $beneficiaire = Beneficiaire::find($idbeneficiaire);
             $beneficiaire->fill($request->post())->save();
 
-            return redirect()->route('beneficiaires.index')->with('success','beneficiaire updated successfully.');
+            return redirect()->route('beneficiaires.index')->with('success','Bénéficiaire mis à jour avec succès..');
         } else {
             // return with errrors
             $beneficiaire = Beneficiaire::find($idbeneficiaire);
@@ -86,6 +86,6 @@ class BeneficiaireControler extends Controller
 public function destroy($idbeneficiaire, Request $request){
    $beneficiaire= beneficiaire::findOrFail($idbeneficiaire);
    $beneficiaire->delete();
-   return redirect()->route('beneficiaires.index')->with('success','beneficiaire deleted successfully.');;
+   return redirect()->route('beneficiaires.index')->with('success','Bénéficiaire supprimé avec succès.');;
 } 
 }
