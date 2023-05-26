@@ -28,7 +28,7 @@
       <div class="card" style="background-color : pink; text-align : center;">
         <div class="card-body">
           <h5 class="card-title">Nombre total des fournisseurs</h5>
-          <p class="card-text" style="font-size: 30px;
+          <p class="card-text" style="font-size: 40px;
         font-weight: bold;">{{$totalFournisseurs}}</p>
         </div>
       </div>
@@ -37,7 +37,7 @@
       <div class="card" style="background-color : pink; text-align : center;">
         <div class="card-body">
           <h5 class="card-title">Nombre des articles</h5>
-          <p class="card-text" style="font-size: 30px;
+          <p class="card-text" style="font-size: 40px;
         font-weight: bold;">{{$totalProduits}}</p>
         </div>
       </div>
@@ -52,7 +52,7 @@
 <div  style="width: 100% border: 1px solid #ccc;
         padding: 10px;">
         <h1 style="font-size: 24px;
-        font-weight: bold;" >Pourcentage des produits dans le stock</h1>
+        font-weight: bold;" >Pourcentages des produits dans le stock</h1>
     {!! $produitsChart->container() !!}
 </div>
 <hr>

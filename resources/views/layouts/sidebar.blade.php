@@ -17,11 +17,11 @@
 
 <a href="#" class="w3-bar-item w3-button"><i class="bi bi-house"></i> Acceuil</a>
   <a href="{{ route('produits.index') }}" class="w3-bar-item w3-button"><i class="bi bi-box-seam"></i> Produits</a>
+  <a href="{{ route('stock.index') }}" class="w3-bar-item w3-button"><i class="bi bi-archive"></i> Stock</a>
   <a href="{{ route('fournisseurs.index') }}" class="w3-bar-item w3-button"><i class="bi bi-truck"></i> Fournisseurs</a>
   <a href="{{ route('etablissements.index') }}" class="w3-bar-item w3-button"><i class="bi bi-building"></i> Etablissements</a>
-  <a href="{{ route('receptions.index') }}" class="w3-bar-item w3-button"><i class="bi bi-reception-3"></i> Receptions</a>
   <a href="{{ route('beneficiaires.index') }}" class="w3-bar-item w3-button"><i class="bi bi-people"></i> Beneficiaires</a>
-  <a href="{{ route('stock.index') }}" class="w3-bar-item w3-button"><i class="bi bi-archive"></i> Stock</a>
+  <a href="{{ route('receptions.index') }}" class="w3-bar-item w3-button"><i class="bi bi-reception-3"></i> Receptions</a>
   <a href="{{ route('sortie.index') }}" class="w3-bar-item w3-button"><i class="bi bi-journal-richtext"></i> Sorties</a>
   <a href="{{ route('logout') }}"onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="w3-bar-item w3-button"> {{ __('Déconnexion') }} </a>
 

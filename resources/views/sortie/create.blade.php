@@ -203,6 +203,8 @@
                 <div class="form-group">
                     <label for="name" class="col-sm-2 col-form-label"></label>
                     <button type="submit" class="btn btn-primary btn-lg">Enregistrer</button>
+                    <a  href="{{ url('/sorties') }}">   <button type="button"  class="btn">Annuler</button></a>
+
                 </div>
             </div>
         </form>
