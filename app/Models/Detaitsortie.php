@@ -10,6 +10,6 @@ class Detaitsortie extends Model
     use HasFactory;
     protected $table = 'Detailsortie';
     protected $primaryKey='iddetailsortie';
-    protected $fillable =['produit_id','quantite','sortie_id'];
+    protected $fillable =['codeproduit','nomproduit','quantite','sortie_id'];
 
 }

@@ -10,6 +10,6 @@ class Detaitreception extends Model
     use HasFactory;
     protected $table = 'Detailsreception';
     protected $primaryKey='iddetails';
-    protected $fillable =['produit_id','reception_id','quantite_recue'];
+    protected $fillable =['codeproduit','nomproduit','reception_id','quantite_recue'];
 
 }

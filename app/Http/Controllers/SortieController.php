@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Sortie;
+
+use App\Models\Produit;
 use App\Models\Beneficiaire;
 use App\Models\Detaitsortie;
 use Illuminate\Support\Facades\Validator;
@@ -100,19 +102,23 @@ class SortieController extends Controller
        
        foreach ($request->input('produitsSelected', []) as $produitId) {
         $quantity = $request->input('quantities.' . $produitId, 0);
-        
-        // Insert the product and its quantity into the detailSortie table
-        DB::table('detailsortie')->insert([
-            'produit_id' => $produitId,
-            'sortie_id' => $lastid,
-            'quantite' => $quantity
-        ]);
+    
+        $product = Produit::findOrFail($produitId);
 
-         // Update the stock table with the new quantity
-    DB::table('stock')
-    ->where('produit_id', $produitId)
-    ->decrement('quantiter', $quantity);
+    // Insert the product details and its quantity into the detailsortie table
+    DB::table('detailsortie')->insert([
+        'codeproduit' => $product->codeproduit,
+        'nomproduit' => $product->nomproduit,
+        'sortie_id' => $lastid,
+        'quantite' => $quantity
+    ]);
+    
+        // Update the stock table with the new quantity
+        DB::table('stock')
+            ->where('produit_id', $produitId)
+            ->decrement('quantiter', $quantity);
     }
+    
    
 
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\Reception;
+
+use App\Models\Produit;
 use App\Models\Detaitreception;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -56,19 +58,23 @@ class FormControler extends Controller
        foreach ($request->input('produitsSelected', []) as $produitId) {
         $quantity = $request->input('quantities.' . $produitId, 0);
         
-        // Insert the product and its quantity into the detailSortie table
+        // Get the product information
+        $produit = Produit::find($produitId);
+        
+        // Insert the product and its quantity into the detailreception table
         DB::table('detailsreception')->insert([
-            'produit_id' => $produitId,
-            'reception_id' => $lastid,
-            'quantite_recue' => $quantity
+            'codeproduit' => $produit->codeproduit,
+            'nomproduit' => $produit->nomproduit,
+            'quantite_recue' => $quantity,
+            'reception_id' => $lastid
         ]);
-
-         // Update the stock table with the new quantity
-    DB::table('stock')
-    ->where('produit_id', $produitId)
-    ->increment('quantiter', $quantity);
+    
+        // Update the stock table with the new quantity
+        DB::table('stock')
+            ->where('produit_id', $produitId)
+            ->increment('quantiter', $quantity);
     }
-   
+    
 
 
        return redirect()->route('receptions.index')->with('success', 'Réception ajoutée.');

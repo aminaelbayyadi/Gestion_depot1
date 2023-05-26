@@ -27,6 +27,7 @@
             <div class="card-body">
                 <table class="table table-striped">
                     <tr>
+                    <th>Code du produit</th>
                     <th>Nom du produit</th>
                     <th>Quantité reçue</th>
                     </tr>
@@ -34,6 +35,7 @@
                     @if($detailreceptions->isNotEmpty())
                     @foreach ($detailreceptions as $detailreceptions)
                     <tr valign="middle">
+                    <td>{{ $detailreceptions->codeproduit }}</td>
                         <td>{{ $detailreceptions->nomproduit }}</td>
                         <td >{{ $detailreceptions->quantite_recue }}</td>
                     </tr>
