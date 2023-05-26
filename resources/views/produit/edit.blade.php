@@ -19,7 +19,7 @@
         <div class="d-flex justify-content-between py-3">
             <div class="h4">Veuillez modifier les informations souhaitées : </div>
             <div>
-                <a href="{{ route('produits.index') }}" class="btn btn-secondary">Retour</a>
+                <a href="{{ route('produits.index') }}" class="btn btn-secondary">Annuler</a>
             </div>
         </div>
 

@@ -27,7 +27,7 @@
         <div class="d-flex justify-content-between py-3">
             <div class="h4"></div>
             <div>
-                <a href="{{ route('beneficiaires.index') }}" class="btn btn-secondary">Retour</a>
+                <a href="{{ route('beneficiaires.index') }}" class="btn btn-secondary">Annuler</a>
             </div>
         </div>
 

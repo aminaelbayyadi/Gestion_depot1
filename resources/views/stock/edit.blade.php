@@ -19,7 +19,7 @@
         <div class="d-flex justify-content-between py-3">
             <div class="h4">Veuillez saisir la nouvelle quantité : </div>
             <div>
-                <a href="{{ route('stock.index') }}" class="btn btn-secondary">Retour</a>
+                <a href="{{ route('stock.index') }}" class="btn btn-secondary">Annuler</a>
             </div>
         </div>
 

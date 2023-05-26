@@ -28,7 +28,7 @@
         <div class="d-flex justify-content-between py-3">
             <div class="h4">Veuillez saisir les informations du fournisseur : </div>
             <div>
-                <a href="{{ route('fournisseurs.index') }}" class="btn btn-secondary">Retour</a>
+                <a href="{{ route('fournisseurs.index') }}" class="btn btn-secondary">Annuler</a>
             </div>
         </div>
 
