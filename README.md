@@ -13,9 +13,15 @@ Ce projet est une application de gestion de stock pour l'administration de la D�
 - Gérer les fournisseurs et les bénéficiaires
 - ...
 
-## Capture d'écran
-
-![Dashboard](hom.png)
+## Captures d'écran
+Page d'accueil
+![Page d'accueil](Home.jpg)
+Dashboard
+![Dashboard](Dashboard.jpg)
+Liste des produits
+![liste des produits](liste%20produits.png)
+Ajouter un nouveau fournisseur
+![Ajouter un nouveau fournisseur](Ajouter%20un%20nouveau%20fournisseur.png)
 
 ## Installation
 
