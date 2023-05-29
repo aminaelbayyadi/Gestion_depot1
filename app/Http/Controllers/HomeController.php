@@ -48,7 +48,7 @@ class HomeController extends Controller
             'title' => [
                 'display' => true,
                 'text' => 'Nombre de receptions par mois'
-            ],
+            ],'maintainAspectRatio' => false,
             'scales' => [
                 'xAxes' => [
                     [
@@ -85,7 +85,7 @@ class HomeController extends Controller
             'title' => [
                 'display' => false,
                 'text' => 'Nombre de sorties par mois'
-            ],
+            ],'maintainAspectRatio' => false,
             'scales' => [
                 'xAxes' => [
                     [
@@ -137,6 +137,7 @@ class HomeController extends Controller
                 'display' => false,
                 'text' => 'Pourcentage des produits dans le stock'
             ],
+            'maintainAspectRatio' => false,
             'scales' => [
                 'xAxes' => [
                     [
@@ -145,7 +146,8 @@ class HomeController extends Controller
                            
                         
                     ]
-                ],
+                ]
+                ,
                 'yAxes' => [
                     [
                        

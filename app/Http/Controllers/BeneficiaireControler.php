@@ -64,7 +64,7 @@ class BeneficiaireControler extends Controller
             'code_beneficiaire' =>'required',
             'nombeneficiaire' =>'required',
             'fonction' =>'required',
-            'etablissement_id' =>'required',
+            'etablissement' =>'required',
             'situation' =>'required',
 
         ]);
