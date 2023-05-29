@@ -21,7 +21,7 @@ integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChi
         <nav>
             <ul>
                 
-                <li><a href="{{ route('login') }}">Login</a></li>
+                <li><a href="{{ route('login') }}">Se connecter</a></li>
                 
             </ul>
             <img src="{{ asset('assets/images/logo.png') }}" alt="" style="width: 260px;">
