@@ -15,7 +15,7 @@ class receptionControler extends Controller
 {
     public function generatePDFr()
 {
-    $receptions = Reception::get(); // Add the data needed for the PDF, such as $receptions
+    $receptions = Reception::get(); 
     $data = [
         'receptions' => $receptions
     ];
