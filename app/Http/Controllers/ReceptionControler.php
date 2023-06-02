@@ -6,11 +6,23 @@ use App\Models\Reception;
 use App\Models\Fournisseur;
 use App\Models\Detaitreception;
 use DB;
+use Barryvdh\DomPDF\Facade\PDF as PDF;
+
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Pagination\Paginator;
 class receptionControler extends Controller
 {
+    public function generatePDFr()
+{
+    $receptions = Reception::get(); // Add the data needed for the PDF, such as $receptions
+    $data = [
+        'receptions' => $receptions
+    ];
+    $pdf = PDF::loadView('reception.pdfr', $data);
+    return $pdf->download('reception.pdfr');
+}
+
     public function index(){
         $fournisseur = DB::table('fournisseurs')->get();
         // $receptions = Reception::join('fournisseurs', 'receptions.fournisseur_id', '=', 'fournisseurs.id')->orderBy('idreception','DESC')

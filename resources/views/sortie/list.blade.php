@@ -73,6 +73,7 @@
             <div class="h4"></div>
             <div>
                 <a href="{{ route('sortie.select') }}" class="btn btn-primary">Ajouter une sortie</a>
+                <a href="{{ route('generate.pdfs') }}" class="btn btn-primary">Générer PDF</a>
             </div>
         </div>
 

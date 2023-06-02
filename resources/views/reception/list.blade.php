@@ -72,6 +72,7 @@
             <div class="h4"></div>
             <div>
                 <a href="{{ route('form/select') }}" class="btn btn-primary">Ajouter une réception</a>
+                <a href="{{ route('generate.pdfr') }}" class="btn btn-primary">Générer PDF</a>
             </div>
         </div>
 

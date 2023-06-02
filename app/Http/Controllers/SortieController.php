@@ -9,8 +9,20 @@ use App\Models\Detaitsortie;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use DB;
+use PDF;
 class SortieController extends Controller
 {
+
+    public function generatePDFs()
+    {
+        $sorties = Sortie::get(); // Add the data needed for the PDF, such as $receptions
+        $data = [
+            'sorties' => $sorties
+        ];
+        $pdf = PDF::loadView('sortie.pdfs', $data);
+        return $pdf->download('sortie.pdfs');
+    }
+
     // index page
     public function index()
     {

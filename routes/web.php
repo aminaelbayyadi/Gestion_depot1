@@ -98,3 +98,7 @@ Route::delete('/sortieform/{sortie}',[App\Http\Controllers\SortieController::cla
 
 Route::get('/detailreception',[App\Http\Controllers\DetailreceptionControler::class,'index'])->name('detailreception.index');
 Route::get('/detailsortie',[App\Http\Controllers\DetailsortieControler::class,'index'])->name('detailsortie.index');
+
+Route::get('generate-pdfr', [ReceptionControler::class,'generatePDFr'])->name('generate.pdfr');
+Route::get('generate-pdfs', [App\Http\Controllers\SortieController::class,'generatePDFs'])->name('generate.pdfs');
+
