@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
 
@@ -72,7 +74,7 @@
             <div class="h4"></div>
             <div>
                 <a href="{{ route('form/select') }}" class="btn btn-primary">Ajouter une réception</a>
-                <a href="{{ route('generate.pdfr') }}" class="btn btn-primary">Générer PDF</a>
+                <a href="{{ route('generate.pdfr') }}" class="btn btn-warning"><i class="bi bi-file-pdf"></i> Générer PDF</a>
             </div>
         </div>
 
